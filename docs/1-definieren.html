@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Definieren | Definieren, argumentieren und wiederholen</title>
+  <meta name="description" content="1 Definieren | Definieren, argumentieren und wiederholen" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Definieren | Definieren, argumentieren und wiederholen" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/./images/spurensuche.jpeg" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Definieren | Definieren, argumentieren und wiederholen" />
+  
+  
+  <meta name="twitter:image" content="/./images/spurensuche.jpeg" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="2-argumentieren.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+
+
+
+
+<link rel="stylesheet" href="webex.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><a href="https://gdischinger.github.io/daw-8"><img src="images/spurensuche.jpeg" alt="logo" width="60%" height="60%"style="margin: 15px 0 0 0"></a></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Was erwartet dich?</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#aktuelles"><i class="fa fa-check"></i>Aktuelles</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#allgemeine-informationen-zum-ablauf"><i class="fa fa-check"></i>Allgemeine Informationen zum Ablauf</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-definieren.html"><a href="1-definieren.html"><i class="fa fa-check"></i><b>1</b> Definieren</a></li>
+<li class="chapter" data-level="2" data-path="2-argumentieren.html"><a href="2-argumentieren.html"><i class="fa fa-check"></i><b>2</b> Argumentieren</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-1-arithmetik-und-algebra.html"><a href="2-1-arithmetik-und-algebra.html"><i class="fa fa-check"></i><b>2.1</b> Arithmetik und Algebra</a></li>
+<li class="chapter" data-level="2.2" data-path="2-2-geometrie.html"><a href="2-2-geometrie.html"><i class="fa fa-check"></i><b>2.2</b> Geometrie</a></li>
+<li class="chapter" data-level="2.3" data-path="2-3-funktionen.html"><a href="2-3-funktionen.html"><i class="fa fa-check"></i><b>2.3</b> Funktionen</a></li>
+<li class="chapter" data-level="2.4" data-path="2-4-daten-und-zufall.html"><a href="2-4-daten-und-zufall.html"><i class="fa fa-check"></i><b>2.4</b> Daten und Zufall</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-zusatzmaterial.html"><a href="3-zusatzmaterial.html"><i class="fa fa-check"></i><b>3</b> Zusatzmaterial</a>
+<ul>
+<li class="chapter" data-level="" data-path="terme-aufstellen.html"><a href="terme-aufstellen.html"><i class="fa fa-check"></i>Terme aufstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="terme-aufstellen.html"><a href="terme-aufstellen.html#was-tun-wenn-ein-term-nicht-genug-ist"><i class="fa fa-check"></i>Was tun, wenn ein Term nicht genug ist?</a></li>
+<li class="chapter" data-level="" data-path="terme-aufstellen.html"><a href="terme-aufstellen.html#gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden"><i class="fa fa-check"></i>Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden</a></li>
+<li class="chapter" data-level="" data-path="terme-aufstellen.html"><a href="terme-aufstellen.html#aufgaben"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html"><i class="fa fa-check"></i>Terme zusammenfassen</a>
+<ul>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html#gleichartige-terme-zusammenfassen---3-äpfel-und-4-äpfel-sind-7-äpfel"><i class="fa fa-check"></i>Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel</a></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html#produktterme-vereinfachen---hier-wird-nur-multipliziert"><i class="fa fa-check"></i>Produktterme vereinfachen - hier wird nur multipliziert</a></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html#vereinfachen-von-termen---jetzt-wird-auch-addiert-subtrahiert-und-dividiert"><i class="fa fa-check"></i>Vereinfachen von Termen - jetzt wird auch addiert, subtrahiert und dividiert</a></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html#ausmultiplizieren-von-klammern"><i class="fa fa-check"></i>Ausmultiplizieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html#ausdividieren-von-klammern"><i class="fa fa-check"></i>Ausdividieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html#ausklammern-von-faktoren"><i class="fa fa-check"></i>Ausklammern von Faktoren</a></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html#multiplizieren-von-zwei-summen"><i class="fa fa-check"></i>Multiplizieren von zwei Summen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="binomische-formeln.html"><a href="binomische-formeln.html"><i class="fa fa-check"></i>Binomische Formeln</a>
+<ul>
+<li class="chapter" data-level="" data-path="binomische-formeln.html"><a href="binomische-formeln.html#aufgaben-1"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Definieren, argumentieren und wiederholen</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="definieren" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Definieren</h1>
+<p>Unter einer Definition versteht man im Allgemeinen die <strong>genaue Abgrenzung eines Begriffes</strong> innerhalb eines größeren Zusammenhangs. Dabei darf und muss man natürlich andere Begriffe verwenden.</p>
+<p>Ein Begriff wird dabei durch eine <strong>Beschreibung</strong> oder <strong>Erklärung</strong> dessen, was er bezeichnet, genau bestimmt. Ist das geschehen, kann man andersherum für jedes Objekt angeben, ob es unter den Begriff fällt oder nicht. Die unter der Definition zusammengefassten Objekte sind dann bezüglich der in der Definition genannten Merkmale gleichartig.</p>
+<div id="beispiel-1" class="section level4 unnumbered">
+<h4>Beispiel 1</h4>
+<p>Gib eine Definition für das Viereck an.</p>
+<div class='solution'>
+<button>
+Vorschlag
+</button>
+<p>Ein Viereck ist eine geometrische Figur in der Ebene, die vier Ecken hat.</p>
+</div>
+<div id="section" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<p>Betrachte folgenden Zoo der Vierecke:</p>
+<p><img src="images/viereckZoo.png" height="300" /></p>
+<p>Überlege dir Antworten auf folgende Fragen:</p>
+<ul>
+<li><p>Fallen alle diese Vierecke unter die oben vorgeschlagene Definition?</p></li>
+<li><p>Möchtest du eines oder mehrere ausschließen?</p></li>
+<li><p>Falls ja, musst du dafür die Definition ändern? Wie sollte sie deiner Ansicht nach lauten?</p></li>
+</ul>
+</div>
+<div id="beispiel-2" class="section level4 unnumbered">
+<h4>Beispiel 2</h4>
+<p>Wie du feststellst und sicher schon oft festgestellt hast, gibt es Vierecke in zahlreichen Variationen. Oft möchte man sogenannte konkave Vierecke ausschließen. Das ist ein konkaves Viereck:</p>
+<p><img src="images/konkaves4Eck.svg" height="300" /></p>
+<p>Ändere die Definition so ab, dass konkave Vierecke ausgeschlossen sind.</p>
+<div class='solution'>
+<button>
+Tipp
+</button>
+<p>Überlege dir, wodurch sich konkave Vierecke auszeichnen.</p>
+</div>
+<div id="section-1" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<div class='solution'>
+<button>
+Vorschlag
+</button>
+<p>Konkave Vierecke zeichnen sich dadurch aus, dass der Schnittpunkt der Diagonalen bei ihnen außerhalb des Vierecks liegt. Hier ein Beispiel:</p>
+<p><img src="images/konkavesViereckDiagonalen.png" height="300" /></p>
+<p>Man könnte also einschränken:</p>
+<p>Unter einem Viereck verstehe ich eine geometrische Figur in der Ebene, die genau vier Ecken hat und für die gilt, dass sich ihre Diagonalen im Inneren der Figur schneiden.</p>
+</div>
+<div id="section-2" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<p>Jetzt können wir uns daran machen, Ordnung in den Zoo der Vierecke zu bringen. Wir klassifizieren sie. Dabei helfen natürlich weitere Definitionen.</p>
+</div>
+<div id="beispiel-3" class="section level4 unnumbered">
+<h4>Beispiel 3</h4>
+<p>Definiere Rechteck.</p>
+<div class='solution'>
+<button>
+Vorschlag 1
+</button>
+<p>Ein Viereck, das vier rechte Winkel hat, heißt Rechteck.</p>
+<p><img src="images/rechteck90Winkel.png" height="100" /></p>
+</div>
+<div id="section-3" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<div class='solution'>
+<button>
+Vorschlag 2
+</button>
+<p>Ein Viereck, dessen Mittelsenkrechten Symmetrieachsen sind, heißt Rechteck.</p>
+<p><img src="images/rechteckMittelsenkrecht.png" height="150" /></p>
+</div>
+<div id="section-4" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<p>Überprüfe diese Definitionen, indem du überlegst, ob alle Rechtecke darunter fallen und andere Vierecke ausgeschlossen werden.</p>
+<p>Und jetzt bist du an der Reihe!</p>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-1" class="section level4 unnumbered">
+<h4>Aufgabe 1</h4>
+<p>Gib für folgende besondere Vierecke eine Definition an.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Parallelogramm</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Ein Parallelogramm ist ein Viereck mit paarweise parallelen Seiten.</p>
+</div>
+<div id="section-5" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Quadrat</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Ein Quadrat ist eine Raute mit vier rechten Winkeln.</p>
+</div>
+<div id="section-6" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Trapez</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Ein Trapez ist ein Viereck mit einem Paar paralleler Seiten.</p>
+</div>
+<div id="section-7" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Raute</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Eine Raute ist ein Viereck mit vier gleich langen Seiten.</p>
+</div>
+<div id="section-8" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<div class='solution'>
+<button>
+Tipp
+</button>
+<p>Dies sind mögliche Eigenschaften, an die du bei deiner Definition denken könntest:</p>
+<ul>
+<li><p>parallele Gegenseiten</p></li>
+<li><p>gleich lange Gegenseiten</p></li>
+<li><p>gleich lange Diagonalen</p></li>
+<li><p>gleichseitig</p></li>
+<li><p>gleichwinklig</p></li>
+<li><p>rechtwinklig</p></li>
+<li><p>punktsymmetrisch</p></li>
+<li><p>achsensymmetrisch</p></li>
+</ul>
+</div>
+<div id="section-9" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-2" class="section level4 unnumbered">
+<h4>Aufgabe 2</h4>
+<p>Gib für folgende besondere Dreiecke eine Definition an.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Rechtwinklige Dreiecke.</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungvorschlag
+</button>
+<p>Ein Dreieck, das einen rechten Winkel hat, heißt rechtwinkliges Dreieck.</p>
+</div>
+<div id="section-10" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Gleichschenklige Dreiecke.</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Ein Dreieck, das zwei gleich lange Seiten hat, heißt gleichschenkliges Dreieck.</p>
+</div>
+<div id="section-11" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Gleichseitige Dreiecke.</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Ein Dreieck, dessen drei Seiten alle gleich lang sind, heißt gleichseitiges Dreieck.</p>
+</div>
+<div id="section-12" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-3" class="section level4 unnumbered">
+<h4>Aufgabe 3</h4>
+<p>Definiere:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Mittelsenktrechte</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Die Lotgerade durch den Mittelpunkt einer Strecke heißt Mittelsenkrechte der Strecke.</p>
+</div>
+<div id="section-13" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Winkelhalbierende</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Die Symmetrieachse eines Winkels heißt Winkelhalbierende.</p>
+</div>
+<div id="section-14" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Höhe im Dreieck</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>In einem Dreieck heißt das Lot von einem Eckpunkt zu der Geraden durch die beiden anderen Eckpunkte Höhe im Dreieck. Jedes Dreieck hat deshalb drei Höhen.</p>
+</div>
+<div id="section-15" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Lotgerade</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Eine Gerade, die senkrecht ist zu einer anderen Geraden, nennt man Lotgerade zu dieser anderen Geraden.</p>
+</div>
+<div id="section-16" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Seitenhalbierende des Dreiecks</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Die Gerade, die eine Ecke des Dreiecks mit dem Mittelpunkt der gegenüberliegenden Seite verbindet, heißt Seitenhalbierende des Dreiecks.</p>
+</div>
+<div id="section-17" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>Kreis</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Ein Kreis ist eine geometrische Figur in der Ebene, die aus all den Punkten besteht, die von einem gegebenen Punkt (dem Mittelpunkt des Kreises) in dieser Ebene den gleichen Abstand haben.</p>
+</div>
+<div id="section-18" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-4" class="section level4 unnumbered">
+<h4>Aufgabe 4</h4>
+<p>Welche besonderen Zahlen sind hier definiert?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Die Zahlen lassen sich in der Form <span class="math inline">\(2 \cdot n + 1\)</span> mit <span class="math inline">\(n= 0, 1, 2, 3, \ldots\)</span> schreiben.</li>
+</ol>
+<div class='solution'>
+<button>
+Lösung
+</button>
+<p>Die ungeraden natürlichen Zahlen.</p>
+</div>
+<div id="section-19" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Die Zahlen haben die Form <span class="math inline">\(5 \cdot n\)</span>, wobei <span class="math inline">\(n\)</span> eine natürliche Zahl ist.</li>
+</ol>
+<div class='solution'>
+<button>
+Lösung
+</button>
+<p>Die Vielfachen der Zahl 5.</p>
+</div>
+<div id="section-20" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Die Zahlen haben die Form <span class="math inline">\(n^2\)</span> mit <span class="math inline">\(n= 1, 2, 3, 4, \ldots\)</span></li>
+</ol>
+<div class='solution'>
+<button>
+Lösung
+</button>
+<p>Die Quadratzahlen</p>
+</div>
+<div id="section-21" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-5" class="section level4 unnumbered">
+<h4>Aufgabe 5</h4>
+<p>Definiere folgende Begriffe und überprüfe deine Definition, indem du im Internet, im Lexikon oder in deinen Unterlagen nachliest:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Arithmetisches Mittel</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Hat man eine Liste (oder Sammlung) von Daten in Form von Zahlen oder Größen gegeben, so ist das arithmetische Mittel (der Mittelwert) dieser Daten der Quotient aus der Summe aller Zahlen oder Größen durch die Anzahl der gegebenen Werte.</p>
+</div>
+<div id="section-22" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Absolute Häufigkeit</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Die absolute Häufigkeit gibt an, wie oft ein bestimmter Wert in einer Datensammlung vorkommt.</p>
+</div>
+<div id="section-23" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Relative Häufigkeit</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Die relativen Häufigkeit gibt den Anteil der Elemente einer Datensammlung wider, die alle einen bestimmten (gleichen) Wert haben. Dabei gilt:</p>
+<p><span class="math display">\[relative\;Häufigkeit = \frac{absolute\;Häufigkeit}{Gesamtzahl}\]</span></p>
+</div>
+<div id="section-24" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-6" class="section level4 unnumbered">
+<h4>Aufgabe 6</h4>
+<p>Erinnere dich an den Anfang des Schuljahres und definiere folgende Begriffe:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Steigung einer Geraden</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Die Steigung m einer Geraden gibt an, wie steil die Gerade ist: Also um wie viel der y-Wert steigt (fällt), wenn der x-Wert um 1 zunimmt.</p>
+</div>
+<div id="section-25" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>y-Achsenabschnitt eines Funktionsgraphen</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Als y-Achsenabschnitt (<span class="math inline">\(S(0|n)\)</span>) bezeichnet man den Schnittpunkt eines Graphen mit der y-Achse.</p>
+</div>
+<div id="section-26" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Lineare Funktion</li>
+</ol>
+<div class='solution'>
+<button>
+Lösungsvorschlag
+</button>
+<p>Eine lineare Funktion ist eine Zuordnung <span class="math inline">\(x \rightarrow y\)</span>, bei denen man zur Berechnung des y-Wertes eine Gleichung der Form <span class="math inline">\(y=m\cdot x +n\)</span> aufstellen kann.</p>
+</div>
+<div id="section-27" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-7" class="section level4 unnumbered">
+<h4>Aufgabe 7</h4>
+<p><strong>Schwer! - Keine Angst vor komischen Wörtern! - Mehrmals lesen hilft!</strong></p>
+<p>Zwei ganze Zahlen <span class="math inline">\(a\)</span> und <span class="math inline">\(b\)</span> heißen kongruent modulo <span class="math inline">\(m\)</span>, wenn die Division von <span class="math inline">\(a\)</span> und <span class="math inline">\(b\)</span> durch <span class="math inline">\(m\)</span> den gleichen Rest <span class="math inline">\(r\)</span> lässt.</p>
+<div class='solution'>
+<button>
+Tipp
+</button>
+<p>Versuch dir die Definition an Beispielen greifbar zu machen. Nimm drei ganze Zahlen: Eine Zahl für a, eine für b und eine für m. Und? Was für ein Rest bleibt, wenn du a durch m dividierst (wie in der Grundschule)? Welcher Rest bleibt, wenn du b durch m dividierst? Bleibt der gleiche Rest? Wenn ja, heißen a und b kongruent modulo m.</p>
+</div>
+<div id="section-28" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol style="list-style-type: lower-alpha">
+<li>Sind <span class="math inline">\(3\)</span> und <span class="math inline">\(5\)</span> kongruent modulo <span class="math inline">\(2\)</span>? Warum?</li>
+</ol>
+<div class='solution'>
+<button>
+Lösung
+</button>
+<p>Ja, denn <span class="math inline">\(3\)</span> und <span class="math inline">\(5\)</span> lassen bei Division durch <span class="math inline">\(2\)</span> denselben Rest:</p>
+<p><span class="math inline">\(3:2 = 1 \quad Rest \; 1 \quad\)</span> und <span class="math inline">\(\quad 5:2 = 2\quad Rest\;1\)</span></p>
+</div>
+<div id="section-29" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Sind <span class="math inline">\(3\)</span> und <span class="math inline">\(4\)</span> kongruent modulo <span class="math inline">\(2\)</span>? Warum?</li>
+</ol>
+<div class='solution'>
+<button>
+Lösung
+</button>
+<p>Nein, denn <span class="math inline">\(3\)</span> und <span class="math inline">\(4\)</span> lassen bei Division durch <span class="math inline">\(2\)</span> nicht denselben Rest:</p>
+<p><span class="math inline">\(3:2 = 1 \quad Rest \;1 \quad\)</span> und <span class="math inline">\(\quad 4:2=2 \quad Rest \; 0\)</span></p>
+</div>
+<div id="section-30" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Sind <span class="math inline">\(5\)</span> und <span class="math inline">\(8\)</span> kongruent modulo <span class="math inline">\(3\)</span>? Warum?</li>
+</ol>
+<div class='solution'>
+<button>
+Lösung
+</button>
+<p>Ja, denn <span class="math inline">\(5\)</span> und <span class="math inline">\(8\)</span> lassen bei Division durch <span class="math inline">\(3\)</span> denselben Rest:</p>
+<p><span class="math inline">\(5:3 = 1 \quad Rest \; 2 \quad\)</span> und <span class="math inline">\(\quad 8:3 = 2\quad Rest\;2\)</span></p>
+</div>
+<div id="section-31" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Nenne vier Zahlen, die modulo <span class="math inline">\(5\)</span> kongruent sind.</li>
+</ol>
+<div class='solution'>
+<button>
+Lösung
+</button>
+<p>Zum Beispiel die Zahlen <span class="math inline">\(1\)</span>, <span class="math inline">\(6\)</span>, <span class="math inline">\(11\)</span> und <span class="math inline">\(16\)</span>. Dividiert man diese Zahlen durch <span class="math inline">\(5\)</span>, so bleibt immer dergleiche Rest: nämlich <span class="math inline">\(1\)</span>. Denn:</p>
+<p><span class="math inline">\(1 = 0 \cdot 5 + 1\)</span></p>
+<p><span class="math inline">\(6 = 1 \cdot 5 + 1\)</span></p>
+<p><span class="math inline">\(11 = 2 \cdot 5 + 1\)</span></p>
+<p><span class="math inline">\(16 = 3 \cdot 5 + 1\)</span></p>
+</div>
+<div id="section-32" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>In Aufgabe 4 wurden besondere Zahlen definiert. In welcher Form lassen sich alle Zahlen schreiben, die modulo <span class="math inline">\(3\)</span> kongruent zu <span class="math inline">\(2\)</span> sind?</li>
+</ol>
+<div class='solution'>
+<button>
+Lösung
+</button>
+<p>Die Forderung, dass die Zahlen modulo <span class="math inline">\(3\)</span> kongruent zu <span class="math inline">\(2\)</span> seien sollen, heißt nichts anderes, als dass bei Division durch <span class="math inline">\(3\)</span> der Rest <span class="math inline">\(2\)</span> bleiben soll. Das ist beispielsweise bei den Zahlen <span class="math inline">\(2\)</span>, <span class="math inline">\(5\)</span>, <span class="math inline">\(8\)</span> oder <span class="math inline">\(11\)</span> der Fall. Denn:</p>
+<p><span class="math inline">\(2 = 0 \cdot 3 + 2\)</span></p>
+<p><span class="math inline">\(5 = 1 \cdot 3 + 2\)</span></p>
+<p><span class="math inline">\(8 = 2 \cdot 3 + 2\)</span></p>
+<p><span class="math inline">\(11 = 3 \cdot 3 + 2\)</span></p>
+<p>Alle diese Zahlen lassen sich also in der Form <span class="math inline">\(n \cdot 3 + 2\)</span> schreiben.</p>
+</div>
+<div id="section-33" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2-argumentieren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "serif",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlighting": true,
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

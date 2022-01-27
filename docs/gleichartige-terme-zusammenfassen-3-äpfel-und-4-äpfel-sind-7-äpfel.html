@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel | Terme - Terme - Terme</title>
+  <meta name="description" content="Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel | Terme - Terme - Terme" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel | Terme - Terme - Terme" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/./images/spurensuche.jpeg" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel | Terme - Terme - Terme" />
+  
+  
+  <meta name="twitter:image" content="/./images/spurensuche.jpeg" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="terme-zusammenfassen.html"/>
+<link rel="next" href="produktterme-vereinfachen-hier-wird-nur-multipliziert.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+
+
+
+
+<link rel="stylesheet" href="webex.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><a href="https://gdischinger.github.io/daw-8"><img src="images/spurensuche.jpeg" alt="logo" width="60%" height="60%"style="margin: 15px 0 0 0"></a></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Was erwartet dich?</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#aktuelles"><i class="fa fa-check"></i>Aktuelles</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terme-aufstellen.html"><a href="terme-aufstellen.html"><i class="fa fa-check"></i>Terme aufstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="was-tun-wenn-ein-term-nicht-genug-ist.html"><a href="was-tun-wenn-ein-term-nicht-genug-ist.html"><i class="fa fa-check"></i>Was tun, wenn ein Term nicht genug ist?</a></li>
+<li class="chapter" data-level="" data-path="gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden.html"><a href="gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden.html"><i class="fa fa-check"></i>Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden</a></li>
+<li class="chapter" data-level="" data-path="aufgaben.html"><a href="aufgaben.html"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html"><i class="fa fa-check"></i>Terme zusammenfassen</a>
+<ul>
+<li class="chapter" data-level="" data-path="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html"><a href="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html"><i class="fa fa-check"></i>Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel</a></li>
+<li class="chapter" data-level="" data-path="produktterme-vereinfachen-hier-wird-nur-multipliziert.html"><a href="produktterme-vereinfachen-hier-wird-nur-multipliziert.html"><i class="fa fa-check"></i>Produktterme vereinfachen - hier wird nur multipliziert</a></li>
+<li class="chapter" data-level="" data-path="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html"><a href="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html"><i class="fa fa-check"></i>Vereinfachen von Termen - jetzt wird auch addiert, subtrahiert und dividiert</a></li>
+<li class="chapter" data-level="" data-path="ausmultiplizieren-von-klammern.html"><a href="ausmultiplizieren-von-klammern.html"><i class="fa fa-check"></i>Ausmultiplizieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="ausdividieren-von-klammern.html"><a href="ausdividieren-von-klammern.html"><i class="fa fa-check"></i>Ausdividieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="ausklammern-von-faktoren.html"><a href="ausklammern-von-faktoren.html"><i class="fa fa-check"></i>Ausklammern von Faktoren</a></li>
+<li class="chapter" data-level="" data-path="multiplizieren-von-zwei-summen.html"><a href="multiplizieren-von-zwei-summen.html"><i class="fa fa-check"></i>Multiplizieren von zwei Summen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="binomische-formeln.html"><a href="binomische-formeln.html"><i class="fa fa-check"></i>Binomische Formeln</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufgaben-1.html"><a href="aufgaben-1.html"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Terme - Terme - Terme</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gleichartige-terme-zusammenfassen---3-äpfel-und-4-äpfel-sind-7-äpfel" class="section level2 unnumbered">
+<h2>Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel</h2>
+<p>Stimmen zwei Terme in allen Variablen (Buchstaben) überein, bezeichnet man sie als <strong>gleichartig</strong>. <strong>Gleichartige Terme</strong> unterscheiden sich also nur in ihrem Zahlenfaktor, dem sogenannten Koeffizienten. Sie werden addiert, indem man ihre Koeffizienten addiert. Ebenso werden sie subtrahiert, indem man ihre Koeffizienten subtrahiert.</p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="42%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gleichartig sind:</th>
+<th>addieren</th>
+<th>subtrahieren</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(4\color{red}{pq}\)</span> und <span class="math inline">\(2\color{red}{pq}\)</span></td>
+<td><span class="math inline">\(4\color{red}{pq}+2\color{red}{pq} = 6\color{red}{pq}\)</span></td>
+<td><span class="math inline">\(4\color{red}{pq}-2\color{red}{pq} = 2\color{red}{pq}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(3,5\color{blue}{xyz}\)</span> und <span class="math inline">\(\color{blue}{x}5\color{blue}{yz}\)</span></td>
+<td><span class="math inline">\(3,5\color{blue}{xyz} + \color{blue}{x}5\color{blue}{yz} = 3,5\color{blue}{xyz} + 5\color{blue}{xyz} = 8,5\color{blue}{xyz}\)</span></td>
+<td><span class="math inline">\(3,5\color{blue}{xyz}-5\color{blue}{xyz}= -1,5\color{blue}{xyz}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(6\color{red}{a^2b}\)</span> und <span class="math inline">\({1\over 2}\color{red}{a^2b}\)</span></td>
+<td><span class="math inline">\(6\color{red}{a^2b} + {1\over 2}\color{red}{a^2b} = 6{1 \over 2}\color{red}{a^2b}\)</span></td>
+<td><span class="math inline">\(6\color{red}{a^2b}- {1\over 2}\color{red}{a^2b} = 5{1 \over 2}\color{red}{a^2b}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div id="section-16" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+<script language="javascript">
+function toggle(num) {
+var ele = document.getElementById("toggleText" + num);
+var text = document.getElementById("displayText" + num);
+if(ele.style.display == "block") {
+ele.style.display = "none";
+text.innerHTML = "show";
+}
+else {
+ele.style.display = "block";
+text.innerHTML = "hide";
+}
+}
+</script>
+</div>
+<div id="aufgabe-1-1" class="section level4 unnumbered">
+<h4>Aufgabe 1</h4>
+<p>Vereinfache, indem du zusammenfasst.</p>
+<div class="box">
+<div>
+<button id="displayText" onclick="javascript:toggle(1);">
+5 Äpfel, 7 Birnen, 3 Äpfel, 4 Birnen
+</button>
+<div id="toggleText1" style="display: none">
+<p>8 Äpfel, 11 Birnen</p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(2);">
+3 Messer, 4 Gabeln, 1 Messer, 2 Gabeln
+</button>
+<div id="toggleText2" style="display: none">
+<p>4 Messer, 6 Gabeln</p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(3);">
+7m und 40kg und 1,5m und 2,8kg
+</button>
+<div id="toggleText3" style="display: none">
+<p>8,5m und 42,8kg</p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(4);">
+<span class="math inline">\(a+20a+200a+2000a\)</span>
+</button>
+<div id="toggleText4" style="display: none">
+<p><span class="math inline">\(2221a\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(5);">
+<span class="math inline">\(1000b+4b+200b\)</span>
+</button>
+<div id="toggleText5" style="display: none">
+<p><span class="math inline">\(1204b\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(6);">
+<span class="math inline">\(10c-11c+12c-13c+14c\)</span>
+</button>
+<div id="toggleText6" style="display: none">
+<p><span class="math inline">\(12c\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(7);">
+<span class="math inline">\(125d-80d+56d-21d\)</span>
+</button>
+<div id="toggleText7" style="display: none">
+<p><span class="math inline">\(80d\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(8);">
+<span class="math inline">\(7f+3e+5f+5e+3f+7e\)</span>
+</button>
+<div id="toggleText8" style="display: none">
+<p><span class="math inline">\(15e+15f\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(9);">
+<span class="math inline">\(125g^2-80g+56g-21g^2\)</span>
+</button>
+<div id="toggleText9" style="display: none">
+<p><span class="math inline">\(104g^2-24g\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(10);">
+<span class="math inline">\(z^3-2z+3z^2-4z^3-5z+6z^2\)</span>
+</button>
+<div id="toggleText10" style="display: none">
+<p><span class="math inline">\(-3z^3+9z^2-7z\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(11);">
+<span class="math inline">\(k^2-3k+4k^4+12k^3\)</span>
+</button>
+<div id="toggleText11" style="display: none">
+<p><span class="math inline">\(4k^4+12k^3+k^2-3k\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="section-17" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-2-1" class="section level4 unnumbered">
+<h4>Aufgabe 2</h4>
+<p>Vereinfache, indem du gleichartige Terme zusammenfasst.</p>
+<div class="box">
+<div>
+<button id="displayText" onclick="javascript:toggle(12);">
+<span class="math inline">\(7ab+3bc-3ab-bc\)</span>
+</button>
+<div id="toggleText12" style="display: none">
+<p><span class="math inline">\(4ab+2bc\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(13);">
+<span class="math inline">\(3de+2d^2e+4d^2e-2de\)</span>
+</button>
+<div id="toggleText13" style="display: none">
+<p><span class="math inline">\(de+6d^2e\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(14);">
+<span class="math inline">\(-6f+3g-9f+f-g\)</span>
+</button>
+<div id="toggleText14" style="display: none">
+<p><span class="math inline">\(-14f+2g\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(15);">
+<span class="math inline">\(3h+4i+7j+3i+4h\)</span>
+</button>
+<div id="toggleText15" style="display: none">
+<p><span class="math inline">\(7h+7i+7j\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(20);">
+<span class="math inline">\(99xy+2xy-3z+7z-xy\)</span>
+</button>
+<div id="toggleText20" style="display: none">
+<p><span class="math inline">\(100xy+4z\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(17);">
+<span class="math inline">\(pq+2p^2q^2-2pq+3p^2q^2+3pq\)</span>
+</button>
+<div id="toggleText17" style="display: none">
+<p><span class="math inline">\(2pq+5p^2q^2\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(18);">
+<span class="math inline">\(3st-3t-5st+2st\)</span>
+</button>
+<div id="toggleText18" style="display: none">
+<p><span class="math inline">\(-3t\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(19);">
+<span class="math inline">\(15uv+21uv+3vw-7vw-6uv\)</span>
+</button>
+<div id="toggleText19" style="display: none">
+<p><span class="math inline">\(30uv-4vw\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(16);">
+<span class="math inline">\(3nop-2op+3np+2nop+2op-3np\)</span>
+</button>
+<div id="toggleText16" style="display: none">
+<p><span class="math inline">\(5nop\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(21);">
+<span class="math inline">\(xy+2yz+3xz+4xz+5xz+6xy+7xy\)</span>
+</button>
+<div id="toggleText21" style="display: none">
+<p><span class="math inline">\(14xy+12xz+2yz\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(22);">
+<span class="math inline">\(6x^3+6x^2-2x^2-2x-4x^4+2x^3-4x^3+2x^2\)</span>
+</button>
+<div id="toggleText22" style="display: none">
+<p><span class="math inline">\(-4x^4+4x^3+6x^2-2x\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(23);">
+<span class="math inline">\(4z^2+3z+1-2z+5-z^2-9\)</span>
+</button>
+<div id="toggleText23" style="display: none">
+<p><span class="math inline">\(3z^2+z-3\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="section-18" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="section-19" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="terme-zusammenfassen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="produktterme-vereinfachen-hier-wird-nur-multipliziert.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "serif",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlighting": true,
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

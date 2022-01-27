@@ -1,0 +1,14 @@
+book_filename: "Terme - Terme - Terme"
+output_dir: docs
+repo: "https://gdischinger.github.io/Terme/"
+delete_merged_file: true
+rmd_files: ["index.Rmd",
+            "TermeAufstellen.Rmd",
+            "TermeZusammenfassen.Rmd",
+            "BinomischeFormeln.Rmd",
+            #"16-ch16.Rmd",  
+            #"references.Rmd"
+            ]
+language:
+  label:
+    fig: "Abbildung "

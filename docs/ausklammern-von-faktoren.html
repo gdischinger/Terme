@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Ausklammern von Faktoren | Terme - Terme - Terme</title>
+  <meta name="description" content="Ausklammern von Faktoren | Terme - Terme - Terme" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Ausklammern von Faktoren | Terme - Terme - Terme" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/./images/spurensuche.jpeg" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ausklammern von Faktoren | Terme - Terme - Terme" />
+  
+  
+  <meta name="twitter:image" content="/./images/spurensuche.jpeg" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ausdividieren-von-klammern.html"/>
+<link rel="next" href="multiplizieren-von-zwei-summen.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+
+
+
+
+<link rel="stylesheet" href="webex.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><a href="https://gdischinger.github.io/daw-8"><img src="images/spurensuche.jpeg" alt="logo" width="60%" height="60%"style="margin: 15px 0 0 0"></a></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Was erwartet dich?</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#aktuelles"><i class="fa fa-check"></i>Aktuelles</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terme-aufstellen.html"><a href="terme-aufstellen.html"><i class="fa fa-check"></i>Terme aufstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="was-tun-wenn-ein-term-nicht-genug-ist.html"><a href="was-tun-wenn-ein-term-nicht-genug-ist.html"><i class="fa fa-check"></i>Was tun, wenn ein Term nicht genug ist?</a></li>
+<li class="chapter" data-level="" data-path="gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden.html"><a href="gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden.html"><i class="fa fa-check"></i>Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden</a></li>
+<li class="chapter" data-level="" data-path="aufgaben.html"><a href="aufgaben.html"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html"><i class="fa fa-check"></i>Terme zusammenfassen</a>
+<ul>
+<li class="chapter" data-level="" data-path="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html"><a href="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html"><i class="fa fa-check"></i>Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel</a></li>
+<li class="chapter" data-level="" data-path="produktterme-vereinfachen-hier-wird-nur-multipliziert.html"><a href="produktterme-vereinfachen-hier-wird-nur-multipliziert.html"><i class="fa fa-check"></i>Produktterme vereinfachen - hier wird nur multipliziert</a></li>
+<li class="chapter" data-level="" data-path="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html"><a href="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html"><i class="fa fa-check"></i>Vereinfachen von Termen - jetzt wird auch addiert, subtrahiert und dividiert</a></li>
+<li class="chapter" data-level="" data-path="ausmultiplizieren-von-klammern.html"><a href="ausmultiplizieren-von-klammern.html"><i class="fa fa-check"></i>Ausmultiplizieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="ausdividieren-von-klammern.html"><a href="ausdividieren-von-klammern.html"><i class="fa fa-check"></i>Ausdividieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="ausklammern-von-faktoren.html"><a href="ausklammern-von-faktoren.html"><i class="fa fa-check"></i>Ausklammern von Faktoren</a></li>
+<li class="chapter" data-level="" data-path="multiplizieren-von-zwei-summen.html"><a href="multiplizieren-von-zwei-summen.html"><i class="fa fa-check"></i>Multiplizieren von zwei Summen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="binomische-formeln.html"><a href="binomische-formeln.html"><i class="fa fa-check"></i>Binomische Formeln</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufgaben-1.html"><a href="aufgaben-1.html"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Terme - Terme - Terme</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ausklammern-von-faktoren" class="section level2 unnumbered">
+<h2>Ausklammern von Faktoren</h2>
+<p>Wenn die Summanden einer Summe gleiche Faktoren besitzen, können diese ausgeklammert werden. Denn es gilt: <span class="math inline">\(a\cdot b + a \cdot c = a\cdot (b+c)\)</span> (Distributivgesetz).</p>
+<p>Das Ziel ist es also größtmögliche gemeinsame Faktoren der Summanden zu finden. Hier hilft es, wenn man noch ein bisschen Übung im Kopfrechnen hat….</p>
+<p>Beispiele:
+<span class="math display">\[15x + 40y = \color{blue}{5}\cdot 3\cdot x +  \color{blue}{5} \cdot 8 \cdot y= \color{blue}{5} \cdot (3x + 8y)\]</span>
+<span class="math display">\[34a^2b - 51ab^2= 2 \cdot \color{red}{17 \cdot a} \cdot a \cdot \color{red}{b} - 3 \cdot \color{red}{17 \cdot a \cdot b} \cdot b =\color{red}{17ab} \cdot (2a-3b)\]</span></p>
+<div id="section-39" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-1-5" class="section level4 unnumbered">
+<h4>Aufgabe 1</h4>
+<p>Um Faktoren, die man ausklammern kann, schnell erkennen zu können, hilft es, wenn man Übung darin hat, Zahlen in ihre Primfaktoren zu zerlegen.</p>
+<p>Hier ein Beispiel: <span class="math inline">\(24 = 2 \cdot 2 \cdot 2 \cdot 3\)</span></p>
+<div class="box">
+<div>
+<button id="displayText" onclick="javascript:toggle(117);">
+<span class="math inline">\((45\)</span>
+</button>
+<div id="toggleText117" style="display: none">
+<p><span class="math inline">\(3\cdot 3 \cdot 5\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(118);">
+<span class="math inline">\(32\)</span>
+</button>
+<div id="toggleText118" style="display: none">
+<p><span class="math inline">\(2 \cdot 2 \cdot 2 \cdot 2 \cdot 2\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(119);">
+<span class="math inline">\(105\)</span>
+</button>
+<div id="toggleText119" style="display: none">
+<p><span class="math inline">\(3 \cdot 5 \cdot 7\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(120);">
+<span class="math inline">\(126\)</span>
+</button>
+<div id="toggleText120" style="display: none">
+<p><span class="math inline">\(2 \cdot 3 \cdot 3 \cdot 7\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(121);">
+<span class="math inline">\(93\)</span>
+</button>
+<div id="toggleText121" style="display: none">
+<p><span class="math inline">\(3 \cdot 31\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(122);">
+<span class="math inline">\(256\)</span>
+</button>
+<div id="toggleText122" style="display: none">
+<p><span class="math inline">\(2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(123);">
+<span class="math inline">\(135\)</span>
+</button>
+<div id="toggleText123" style="display: none">
+<p><span class="math inline">\(3 \cdot 3 \cdot 3 \cdot 5\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(124);">
+<span class="math inline">\(351\)</span>
+</button>
+<div id="toggleText124" style="display: none">
+<p><span class="math inline">\(3 \cdot 3 \cdot 3 \cdot13\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(125);">
+<span class="math inline">\(187\)</span>
+</button>
+<div id="toggleText125" style="display: none">
+<p><span class="math inline">\(11 \cdot 17\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(126);">
+<span class="math inline">\(312\)</span>
+</button>
+<div id="toggleText126" style="display: none">
+<p><span class="math inline">\(2 \cdot 2 \cdot 2 \cdot 3 \cdot 13\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(127);">
+<span class="math inline">\(544\)</span>
+</button>
+<div id="toggleText127" style="display: none">
+<p><span class="math inline">\(2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 17\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(128);">
+<span class="math inline">\(195\)</span>
+</button>
+<div id="toggleText128" style="display: none">
+<p><span class="math inline">\(3 \cdot 5 \cdot 13\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(129);">
+<span class="math inline">\(602\)</span>
+</button>
+<div id="toggleText129" style="display: none">
+<p><span class="math inline">\(2 \cdot 7 \cdot 43\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(130);">
+<span class="math inline">\(210\)</span>
+</button>
+<div id="toggleText130" style="display: none">
+<p><span class="math inline">\(2 \cdot 3 \cdot 5 \cdot 7\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(131);">
+<span class="math inline">\(663\)</span>
+</button>
+<div id="toggleText131" style="display: none">
+<p><span class="math inline">\(3 \cdot 13 \cdot 17\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(132);">
+<span class="math inline">\(725\)</span>
+</button>
+<div id="toggleText132" style="display: none">
+<p><span class="math inline">\(5 \cdot 5 \cdot 29\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(133);">
+<span class="math inline">\(385\)</span>
+</button>
+<div id="toggleText133" style="display: none">
+<p><span class="math inline">\(5 \cdot 7 \cdot 11\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(134);">
+<span class="math inline">\(322\)</span>
+</button>
+<div id="toggleText134" style="display: none">
+<p><span class="math inline">\(2 \cdot 7 \cdot 23\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="section-40" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-2-5" class="section level4 unnumbered">
+<h4>Aufgabe 2</h4>
+<p>Schreibe die Summe als Produkt, indem du den größtmöglichen gemeinsamen Faktor ausklammerst.</p>
+<div class="box">
+<div>
+<button id="displayText" onclick="javascript:toggle(135);">
+<span class="math inline">\(5x+10y\)</span>
+</button>
+<div id="toggleText135" style="display: none">
+<p><span class="math inline">\(5 \cdot (x+2y)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(136);">
+<span class="math inline">\(21x-28y\)</span>
+</button>
+<div id="toggleText136" style="display: none">
+<p><span class="math inline">\(7 \cdot (3x-4y)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(137);">
+<span class="math inline">\(-14a-21b\)</span>
+</button>
+<div id="toggleText137" style="display: none">
+<p><span class="math inline">\(7 \cdot (-2a-3b)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(138);">
+<span class="math inline">\(3a+9b-3c\)</span>
+</button>
+<div id="toggleText138" style="display: none">
+<p><span class="math inline">\(3 \cdot (a+3b-c)\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(139);">
+<span class="math inline">\(-10a-10x-35\)</span>
+</button>
+<div id="toggleText139" style="display: none">
+<p><span class="math inline">\(5 \cdot (-2a-2x-7)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(140);">
+<span class="math inline">\(14x-21y+35z-77\)</span>
+</button>
+<div id="toggleText140" style="display: none">
+<p><span class="math inline">\(7 \cdot (2x-3y+5z-11)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(141);">
+<span class="math inline">\(16a + 32\)</span>
+</button>
+<div id="toggleText141" style="display: none">
+<p><span class="math inline">\(16 \cdot (a+2)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(142);">
+<span class="math inline">\(55x+15y\)</span>
+</button>
+<div id="toggleText142" style="display: none">
+<p><span class="math inline">\(5 \cdot (11x+3y)\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(143);">
+<span class="math inline">\(24s+54t\)</span>
+</button>
+<div id="toggleText143" style="display: none">
+<p><span class="math inline">\(6 \cdot (4s+9t)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(144);">
+<span class="math inline">\(81m-9v\)</span>
+</button>
+<div id="toggleText144" style="display: none">
+<p><span class="math inline">\(9 \cdot (9m-v)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(145);">
+<span class="math inline">\(35u-42v\)</span>
+</button>
+<div id="toggleText145" style="display: none">
+<p><span class="math inline">\(7 \cdot (5u-6v)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(146);">
+<span class="math inline">\(108x-84y\)</span>
+</button>
+<div id="toggleText146" style="display: none">
+<p><span class="math inline">\(12 \cdot (9x+7y)\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="section-41" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-3-2" class="section level4 unnumbered">
+<h4>Aufgabe 3</h4>
+<p>Schreibe die Summe als Produkt, indem du den größtmöglichen gemeinsamen Faktor ausklammerst.</p>
+<div class="box">
+<div>
+<button id="displayText" onclick="javascript:toggle(147);">
+<span class="math inline">\(17x-12xy\)</span>
+</button>
+<div id="toggleText147" style="display: none">
+<p><span class="math inline">\(x \cdot (17-12y)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(148);">
+<span class="math inline">\(-31ef-29eg\)</span>
+</button>
+<div id="toggleText148" style="display: none">
+<p><span class="math inline">\(-e \cdot (31f+29g)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(149);">
+<span class="math inline">\(28c^2-35c\)</span>
+</button>
+<div id="toggleText149" style="display: none">
+<p><span class="math inline">\(7c \cdot (4c-5)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(150);">
+<span class="math inline">\(-46bd^2 + 69bd\)</span>
+</button>
+<div id="toggleText150" style="display: none">
+<p><span class="math inline">\(23bd \cdot (-2d+3)\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(151);">
+<span class="math inline">\(ax+bx+cx\)</span>
+</button>
+<div id="toggleText151" style="display: none">
+<p><span class="math inline">\(x \cdot (a+b+c)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(152);">
+<span class="math inline">\(3xy-2xz\)</span>
+</button>
+<div id="toggleText152" style="display: none">
+<p><span class="math inline">\(x \cdot (3y-2z)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(153);">
+<span class="math inline">\(10xy-4yz\)</span>
+</button>
+<div id="toggleText153" style="display: none">
+<p><span class="math inline">\(2y \cdot (5x-2z)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(154);">
+<span class="math inline">\(10x^3 - 18x^2\)</span>
+</button>
+<div id="toggleText154" style="display: none">
+<p><span class="math inline">\(2x^2 \cdot (5x-9)\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(155);">
+<span class="math inline">\(7a^2 c+ 21a^2 d\)</span>
+</button>
+<div id="toggleText155" style="display: none">
+<p><span class="math inline">\(7a^2 \cdot (c+3d)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(156);">
+<span class="math inline">\(-5s^2 -5s^2t-5s^3\)</span>
+</button>
+<div id="toggleText156" style="display: none">
+<p><span class="math inline">\(-5s^2 \cdot(1+t+s)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(157);">
+<span class="math inline">\(30x^3 + 42x^2y + 18x^2z\)</span>
+</button>
+<div id="toggleText157" style="display: none">
+<p><span class="math inline">\(6x^2(5x+7y+3z)\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(158);">
+<span class="math inline">\(65pq-39q^2+52pq^2\)</span>
+</button>
+<div id="toggleText158" style="display: none">
+<p><span class="math inline">\(13q \cdot (5p-3q+4pq)\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="section-42" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="section-43" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ausdividieren-von-klammern.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multiplizieren-von-zwei-summen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "serif",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlighting": true,
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

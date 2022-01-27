@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden | Terme - Terme - Terme</title>
+  <meta name="description" content="Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden | Terme - Terme - Terme" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden | Terme - Terme - Terme" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/./images/spurensuche.jpeg" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden | Terme - Terme - Terme" />
+  
+  
+  <meta name="twitter:image" content="/./images/spurensuche.jpeg" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="was-tun-wenn-ein-term-nicht-genug-ist.html"/>
+<link rel="next" href="aufgaben.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+
+
+
+
+<link rel="stylesheet" href="webex.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><a href="https://gdischinger.github.io/daw-8"><img src="images/spurensuche.jpeg" alt="logo" width="60%" height="60%"style="margin: 15px 0 0 0"></a></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Was erwartet dich?</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#aktuelles"><i class="fa fa-check"></i>Aktuelles</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terme-aufstellen.html"><a href="terme-aufstellen.html"><i class="fa fa-check"></i>Terme aufstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="was-tun-wenn-ein-term-nicht-genug-ist.html"><a href="was-tun-wenn-ein-term-nicht-genug-ist.html"><i class="fa fa-check"></i>Was tun, wenn ein Term nicht genug ist?</a></li>
+<li class="chapter" data-level="" data-path="gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden.html"><a href="gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden.html"><i class="fa fa-check"></i>Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden</a></li>
+<li class="chapter" data-level="" data-path="aufgaben.html"><a href="aufgaben.html"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html"><i class="fa fa-check"></i>Terme zusammenfassen</a>
+<ul>
+<li class="chapter" data-level="" data-path="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html"><a href="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html"><i class="fa fa-check"></i>Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel</a></li>
+<li class="chapter" data-level="" data-path="produktterme-vereinfachen-hier-wird-nur-multipliziert.html"><a href="produktterme-vereinfachen-hier-wird-nur-multipliziert.html"><i class="fa fa-check"></i>Produktterme vereinfachen - hier wird nur multipliziert</a></li>
+<li class="chapter" data-level="" data-path="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html"><a href="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html"><i class="fa fa-check"></i>Vereinfachen von Termen - jetzt wird auch addiert, subtrahiert und dividiert</a></li>
+<li class="chapter" data-level="" data-path="ausmultiplizieren-von-klammern.html"><a href="ausmultiplizieren-von-klammern.html"><i class="fa fa-check"></i>Ausmultiplizieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="ausdividieren-von-klammern.html"><a href="ausdividieren-von-klammern.html"><i class="fa fa-check"></i>Ausdividieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="ausklammern-von-faktoren.html"><a href="ausklammern-von-faktoren.html"><i class="fa fa-check"></i>Ausklammern von Faktoren</a></li>
+<li class="chapter" data-level="" data-path="multiplizieren-von-zwei-summen.html"><a href="multiplizieren-von-zwei-summen.html"><i class="fa fa-check"></i>Multiplizieren von zwei Summen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="binomische-formeln.html"><a href="binomische-formeln.html"><i class="fa fa-check"></i>Binomische Formeln</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufgaben-1.html"><a href="aufgaben-1.html"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Terme - Terme - Terme</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden" class="section level2 unnumbered">
+<h2>Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden</h2>
+<ul>
+<li><p>Rechteck: <span class="math inline">\(\quad A=l\cdot b\)</span>, <span class="math inline">\(\quad U=2\cdot (l+b)\)</span></p></li>
+<li><p>Dreieck: <span class="math inline">\(\quad A= {1 \over 2} \cdot g \cdot h\)</span></p></li>
+<li><p>Parallelogramm: <span class="math inline">\(\quad A=g \cdot h\)</span></p></li>
+<li><p>Trapez: <span class="math inline">\(\quad A= {a+c \over 2} \cdot h\)</span></p></li>
+<li><p>Kreis: <span class="math inline">\(\quad A=\pi \cdot r^2\)</span>, <span class="math inline">\(\quad U=2 \cdot \pi \cdot r\)</span></p></li>
+</ul>
+<div id="section-4" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="section-5" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="section-6" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="was-tun-wenn-ein-term-nicht-genug-ist.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aufgaben.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "serif",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlighting": true,
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

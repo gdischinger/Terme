@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Produktterme vereinfachen - hier wird nur multipliziert | Terme - Terme - Terme</title>
+  <meta name="description" content="Produktterme vereinfachen - hier wird nur multipliziert | Terme - Terme - Terme" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Produktterme vereinfachen - hier wird nur multipliziert | Terme - Terme - Terme" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/./images/spurensuche.jpeg" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Produktterme vereinfachen - hier wird nur multipliziert | Terme - Terme - Terme" />
+  
+  
+  <meta name="twitter:image" content="/./images/spurensuche.jpeg" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html"/>
+<link rel="next" href="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+
+
+
+
+<link rel="stylesheet" href="webex.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><a href="https://gdischinger.github.io/daw-8"><img src="images/spurensuche.jpeg" alt="logo" width="60%" height="60%"style="margin: 15px 0 0 0"></a></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Was erwartet dich?</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#aktuelles"><i class="fa fa-check"></i>Aktuelles</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terme-aufstellen.html"><a href="terme-aufstellen.html"><i class="fa fa-check"></i>Terme aufstellen</a>
+<ul>
+<li class="chapter" data-level="" data-path="was-tun-wenn-ein-term-nicht-genug-ist.html"><a href="was-tun-wenn-ein-term-nicht-genug-ist.html"><i class="fa fa-check"></i>Was tun, wenn ein Term nicht genug ist?</a></li>
+<li class="chapter" data-level="" data-path="gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden.html"><a href="gesetzmäßigkeiten-die-bei-geometrieaufgaben-oft-genutzt-werden.html"><i class="fa fa-check"></i>Gesetzmäßigkeiten, die bei Geometrieaufgaben oft genutzt werden</a></li>
+<li class="chapter" data-level="" data-path="aufgaben.html"><a href="aufgaben.html"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terme-zusammenfassen.html"><a href="terme-zusammenfassen.html"><i class="fa fa-check"></i>Terme zusammenfassen</a>
+<ul>
+<li class="chapter" data-level="" data-path="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html"><a href="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html"><i class="fa fa-check"></i>Gleichartige Terme zusammenfassen - 3 Äpfel und 4 Äpfel sind 7 Äpfel</a></li>
+<li class="chapter" data-level="" data-path="produktterme-vereinfachen-hier-wird-nur-multipliziert.html"><a href="produktterme-vereinfachen-hier-wird-nur-multipliziert.html"><i class="fa fa-check"></i>Produktterme vereinfachen - hier wird nur multipliziert</a></li>
+<li class="chapter" data-level="" data-path="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html"><a href="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html"><i class="fa fa-check"></i>Vereinfachen von Termen - jetzt wird auch addiert, subtrahiert und dividiert</a></li>
+<li class="chapter" data-level="" data-path="ausmultiplizieren-von-klammern.html"><a href="ausmultiplizieren-von-klammern.html"><i class="fa fa-check"></i>Ausmultiplizieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="ausdividieren-von-klammern.html"><a href="ausdividieren-von-klammern.html"><i class="fa fa-check"></i>Ausdividieren von Klammern</a></li>
+<li class="chapter" data-level="" data-path="ausklammern-von-faktoren.html"><a href="ausklammern-von-faktoren.html"><i class="fa fa-check"></i>Ausklammern von Faktoren</a></li>
+<li class="chapter" data-level="" data-path="multiplizieren-von-zwei-summen.html"><a href="multiplizieren-von-zwei-summen.html"><i class="fa fa-check"></i>Multiplizieren von zwei Summen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="binomische-formeln.html"><a href="binomische-formeln.html"><i class="fa fa-check"></i>Binomische Formeln</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufgaben-1.html"><a href="aufgaben-1.html"><i class="fa fa-check"></i>Aufgaben</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Terme - Terme - Terme</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="produktterme-vereinfachen---hier-wird-nur-multipliziert" class="section level2 unnumbered">
+<h2>Produktterme vereinfachen - hier wird nur multipliziert</h2>
+<p>Wie du weißt, ist in allen Zahlbereichen, die du kennst, die Reihenfolge der Faktoren in einer Multiplikationsaufgabe beliebig. Beispielsweise haben die Rechnungen <span class="math inline">\(3 \cdot 5\)</span> und <span class="math inline">\(5 \cdot 3\)</span> dasselbe Ergebnis – nämlich <span class="math inline">\(15\)</span>. Um gleichartige Terme schneller erkennen zu können, lohnt es sich, sie zu <strong>vereinfachen</strong>, indem man sie <strong>sortiert</strong>. Dabei geht man am besten wie folgt vor:</p>
+<ol style="list-style-type: decimal">
+<li>Den Zahlenfaktor notiert man ganz vorne,</li>
+<li>zudem sortiert man die Variablen nach Alphabet und</li>
+<li>fasst gleiche Variablen zu einer Potenz zusammen.</li>
+</ol>
+<p><strong>Beispiele:</strong></p>
+<p><span class="math inline">\(r \cdot a \cdot b \cdot e = a \cdot b \cdot e \cdot r = aber\)</span></p>
+<p><span class="math inline">\(a \cdot n \cdot n \cdot a = a^2 \cdot n^2 = a^2n^2\)</span></p>
+<p><span class="math inline">\(2 \cdot i \cdot 3 \cdot s \cdot 4 \cdot e = 2 \cdot 3 \cdot 4 \cdot e \cdot i \cdot s = 24\; eis\)</span></p>
+<p><span class="math inline">\(2 \cdot b \cdot (-1) \cdot a \cdot r \cdot 2 \cdot b \cdot 3 \cdot a \cdot r \cdot a= 2 \cdot (-1) \cdot 2 \cdot 3 \cdot a^3 \cdot b^2 \cdot r^2 = -12 \; a^3b^2r^2\)</span></p>
+<div id="section-20" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-1-2" class="section level4 unnumbered">
+<h4>Aufgabe 1</h4>
+<p>Vereinfache die folgenden Terme.</p>
+<div class="box">
+<div>
+<button id="displayText" onclick="javascript:toggle(24);">
+<span class="math inline">\(4 \cdot u \cdot u \cdot v \cdot v \cdot 4 \cdot u \cdot 4\)</span>
+</button>
+<div id="toggleText24" style="display: none">
+<p><span class="math inline">\(64u^3v^2\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(25);">
+<span class="math inline">\(9 \cdot x \cdot y \cdot 9 \cdot y \cdot x \cdot y \cdot z\)</span>
+</button>
+<div id="toggleText25" style="display: none">
+<p><span class="math inline">\(81x^2y^3z\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(26);">
+<span class="math inline">\(z \cdot 5 \cdot 5 \cdot z \cdot z \cdot 5\)</span>
+</button>
+<div id="toggleText26" style="display: none">
+<p><span class="math inline">\(125z^3\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(27);">
+<span class="math inline">\(11 \cdot x^2 \cdot y^2 \cdot z^3 \cdot 2 \cdot x^3\)</span>
+</button>
+<div id="toggleText27" style="display: none">
+<p><span class="math inline">\(22x^5y^2z^3\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(28);">
+<span class="math inline">\(c^3 \cdot b^2 \cdot 2 \cdot a \cdot 5 \cdot b^2 \cdot a^2\)</span>
+</button>
+<div id="toggleText28" style="display: none">
+<p><span class="math inline">\(10a^3b^4c^3\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(29);">
+<span class="math inline">\(s \cdot t \cdot s \cdot s \cdot t^2 \cdot s^2 \cdot t^2 \cdot 4\)</span>
+</button>
+<div id="toggleText29" style="display: none">
+<p><span class="math inline">\(4s^5t^5\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(30);">
+<span class="math inline">\(3 \cdot p \cdot a \cdot p \cdot a \cdot 6 \cdot m \cdot a \cdot m \cdot a\)</span>
+</button>
+<div id="toggleText30" style="display: none">
+<p><span class="math inline">\(18a^4m^2p^2\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(31);">
+<span class="math inline">\(m \cdot a \cdot t \cdot h \cdot e \cdot m \cdot a \cdot t \cdot i \cdot k\)</span>
+</button>
+<div id="toggleText31" style="display: none">
+<p><span class="math inline">\(a^2ehikm^2t^2\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(32);">
+<span class="math inline">\(r \cdot a \cdot t^2 \cdot e\)</span>
+</button>
+<div id="toggleText32" style="display: none">
+<p><span class="math inline">\(aert^2\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(33);">
+<span class="math inline">\(p \cdot i \cdot l^2 \cdot e \cdot p \cdot a \cdot l^2 \cdot e\)</span>
+</button>
+<div id="toggleText33" style="display: none">
+<p><span class="math inline">\(ae^2il^4p^2\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(34);">
+<span class="math inline">\(o \cdot t^2 \cdot o \cdot s \cdot m \cdot o \cdot p \cdot s\)</span>
+</button>
+<div id="toggleText34" style="display: none">
+<p><span class="math inline">\(mo^3ps^2t^2\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(35);">
+<span class="math inline">\(k \cdot k^9 \cdot i^8 \cdot i^2 \cdot b^3 \cdot c^4 \cdot c^6 \cdot b^7\)</span>
+</button>
+<div id="toggleText35" style="display: none">
+<p><span class="math inline">\(b^{10}c^{10}i^{10}k^{10}\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="section-21" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="aufgabe-2-2" class="section level4 unnumbered">
+<h4>Aufgabe 2</h4>
+<p>Vereinfache die folgenden Terme.</p>
+<div class="box">
+<div>
+<button id="displayText" onclick="javascript:toggle(36);">
+<span class="math inline">\(5x^4 \cdot 3x^2 \cdot 7x^4\)</span>
+</button>
+<div id="toggleText36" style="display: none">
+<p><span class="math inline">\(105x^{10}\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(37);">
+<span class="math inline">\(8x^3 \cdot (-2x^2)\)</span>
+</button>
+<div id="toggleText37" style="display: none">
+<p><span class="math inline">\(-16x^5\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(38);">
+<span class="math inline">\((-8x^2) \cdot (-4x^3) \cdot (-2x^8)\)</span>
+</button>
+<div id="toggleText38" style="display: none">
+<p><span class="math inline">\(-64x^{13}\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(39);">
+<span class="math inline">\(3b^2 \cdot7a^4\)</span>
+</button>
+<div id="toggleText39" style="display: none">
+<p><span class="math inline">\(21a^4b^2\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(40);">
+<span class="math inline">\(-2x^2 \cdot (-4y^2) \cdot 8y^3 \cdot3x^2\)</span>
+</button>
+<div id="toggleText40" style="display: none">
+<p><span class="math inline">\(192x^4y^5\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(41);">
+<span class="math inline">\(3i^3 \cdot 2i \cdot (-2j^7) \cdot 4j^2\)</span>
+</button>
+<div id="toggleText41" style="display: none">
+<p><span class="math inline">\(-48i^4 j^7\)</span></p>
+</div>
+</div>
+<div>
+<button id="displayText" onclick="javascript:toggle(42);">
+<span class="math inline">\(5ij \cdot 3ji \cdot2ji^2 \cdot (-3j^2i)\)</span>
+</button>
+<div id="toggleText42" style="display: none">
+<p><span class="math inline">\(-90i^5 j^5\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(43);">
+<span class="math inline">\(cd^2 \cdot de^2 \cdot ec^2 \cdot cde\)</span>
+</button>
+<div id="toggleText43" style="display: none">
+<p><span class="math inline">\(c^4d^4e^4\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(44);">
+<span class="math inline">\(-3x \cdot 8y \cdot 7 \cdot xy \cdot (-5z)\)</span>
+</button>
+<div id="toggleText44" style="display: none">
+<p><span class="math inline">\(840 x^2 y^2 z\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(45);">
+<span class="math inline">\(abba \cdot baba \cdot aba \cdot bab\)</span>
+</button>
+<div id="toggleText45" style="display: none">
+<p><span class="math inline">\(a^7 b^7\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(46);">
+<span class="math inline">\(8st \cdot 7ts \cdot 9 \cdot t^2 s^2\)</span>
+</button>
+<div id="toggleText46" style="display: none">
+<p><span class="math inline">\(504 s^4 t^4\)</span></p>
+</div>
+<p><br></p>
+<button id="displayText" onclick="javascript:toggle(47);">
+<span class="math inline">\(a^2 b^3 \cdot c^2 a ^3 \cdot 4a \cdot 5b \cdot 3c\)</span>
+</button>
+<div id="toggleText47" style="display: none">
+<p><span class="math inline">\(60 a^6 b^4 c^3\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="section-22" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+<div id="section-23" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<hr style="background-color:#3C6690;height:2px">
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gleichartige-terme-zusammenfassen-3-äpfel-und-4-äpfel-sind-7-äpfel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vereinfachen-von-termen-jetzt-wird-auch-addiert-subtrahiert-und-dividiert.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "serif",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlighting": true,
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

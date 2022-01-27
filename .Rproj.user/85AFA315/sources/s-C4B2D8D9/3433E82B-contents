@@ -1,0 +1,1109 @@
+# Argumentieren
+Um gut argumentieren zu können, musst du natürlich auch ein bisschen etwas wissen. Hier also ein Überblick über die "Argumentationsbasis", mit der sich die Aufgaben aus den Bereichen "Arithmetik und Algebra" und "Geometrie" gut meistern lassen:
+
+**Arithmetik und Algebra**
+
++ Gerade Zahl: $2n$, wobei $n$ eine natürliche Zahl ist.
+
++ Ungerade Zahl: $2n+1$, wobei $n$ eine natürliche Zahl ist.
+
++ Durch 5 teilbare Zahl: $5n$, wobei $n$ eine natürliche Zahl ist. (Analog: durch 7 teilbare Zahl, durch 11 teilbare Zahl usw.)
+
++ Quadratzahl: $n^2$
+
++ Drei aufeinander folgende Zahlen: $n$, $n+1$, $n+2$
+
+
+**Geometrie**
+
++ Die Winkelsumme im Dreieck beträgt 180°.
+
++ Alle Punkte auf der Kreislinie haben denselben Abstand vom Mittelpunkt des Kreises (nämlich den Radius r).
+
+
+**Nötiges Handwerkszeug**
+
+Zusätzlich zu diesen immer wiederkehrenden Fakten musst du **Terme aufstellen und zusammenfassen** können. Solltest du hier noch Schwierigkeiten haben, arbeite bitte das Zusatzmaterial durch. Dort findest du viele alte Aufgaben.
+
+
+## Arithmetik und Algebra
+
+#### Aufgabe 1 {-}
+Entscheide, ob die folgenden Aussagen wahr oder falsch sind. Begründe deine Entscheidung! Bei falschen Aussagen genügt ein Gegenbeispiel.
+
+a) Jede natürliche Zahl lässt sich als Bruch schreiben.
+
+`r hide("Lösung")`
+
+Diese Aussage ist wahr, denn man kann jede natürliche Zahl $n$ schreiben als $\frac{n}{1}$.
+
+#### {-}
+
+b) Subtrahiert man zwei natürliche Zahlen voneinander, erhält man eine natürliche Zahl.
+
+`r hide("Lösung")`
+
+Diese Aussage ist falsch. Hier ist ein Gegenbeispiel: $2-5=-3$
+
+#### {-}
+
+c) Multipliziert man zwei irrationale Zahlen, erhält man immer eine irrationale Zahl.
+
+`r hide("Lösung")`
+
+Diese Aussage ist falsch. Hier ist ein Gegenbeispiel: $\sqrt{2} \cdot \sqrt{2} = 2$
+
+#### {-}
+
+d) Da Wurzeln immer positiv sind, gibt es keine negativen irrationalen Zahlen.
+
+`r hide("Lösung")`
+
+Diese Aussage ist falsch. Hier ist ein Gegenbeispiel: $-\sqrt{2}$ ist auch eine irrationale Zahl
+
+#### {-}
+
+e) Es gibt irrationale Zahlen, deren 1000-Faches eine rationale Zahl ist.
+
+`r hide("Lösung")`
+
+Diese Aussage ist falsch. Das Produkt einer rationalen Zahl (hier 1000) und einer irrationalen Zahl ist immer irrational. Bei der Dezimaldarstellung der irrationalen Zahl bewirkt die Multiplikation mit 1000 nur eine "Verschiebung des Kommas" um drei Stellen nach rechts, das Produkt besitzt aber weiterhin unendlich viele Nachkommastellen, die nicht periodisch sind.
+
+#### {-}
+
+f) Eine Dezimalzahl, die unendlich viele Nachkommastellen hat, ist immer irrational.
+
+`r hide("Lösung")`
+
+Diese Aussage ist falsch. Hier sind Gegenbeispiele: Periodische Dezimalzahlen besitzen unendlich viele Nachkommastellen, lassen sich jedoch als Bruch darstellen und sind daher rational, z.B. $\frac{1}{3}=0,\bar{3}=0,333333\ldots$
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 2 {-}
+Frau D. behauptet:
+
+>Die Summe von fünf aufeinander folgenden Zahlen ist durch 5 teilbar.
+
+Finde ein Gegenbeispiel oder beweise, dass Frau D. recht hat.
+
+`r hide("Tipp 1")`
+
+Führe Variablen und Terme ein! 
+
+#### {-}
+
+`r hide("Tipp 2")`
+
+Den Nachfolger einer natürlichen Zahl $n$ kann man als $n+1$ schreiben. Die Summe aus einer Zahl und ihrem Nachfolger wäre also $n+n+1=2n+1$. Wie kannst du auf die gleiche Art die Summe von fünf aufeinander folgenden Zahlen ausdrücken?
+
+#### {-}
+
+`r hide("Lösung")`
+
+Fünf aufeinander folgende Zahlen sind: $n$, $n+1$, $n+2$, $n+3$ und $n+4$.
+
+Nun muss man die Summe der fünf aufeinander folgenden Zahlen bilden und den entstandenen Term zusammenfassen:
+
+$$\begin{align}
+&\quad n + (n+1) + (n+2) + (n+3) + (n+4) =\\
+&= n+n+1+n+2+n+3+n+4=\\
+&= 5n+10 = 5 \cdot(n+2)
+\end{align}$$
+
+Da der Term $5 \cdot (n+2)$ den Faktor $5$ enthält, ist die Summe von fünf aufeinander folgenden Zahlen durch $5$ teilbar.
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 3 {-}
+Frau D. hat Langeweile. Daher wirft sie nun mit Behauptungen nur so um sich.
+ 
+a) Die Summe zweier ungerader natürlicher Zahlen ist eine gerade Zahl.
+
+`r hide("Lösung")`
+
+Zunächst wählt man für die beiden ungeraden natürlichen Zahlen zwei *verschiedene* Terme. Die beiden ungeraden Zahlen dürfen schließlich verschieden sein.
+
+Für die erste ungerade Zahl wählt man $2n+1$, für die zweite ungerade Zahl $2m+1$. $m$ und $n$ sind dabei natürliche Zahlen. 
+
+Es ist also egal, was die gemeine Frau D. für n und m einsetzt, sie erhält immer ungerade Zahlen. Probier es aus.
+
+Die Behauptung ist nun, die Summe dieser beiden Zahlen sei gerade. Für die Summe gilt:
+
+$$(2n+1)+(2m+1)=2n+1+2m+1=2n+2m+2=2\cdot (n+m+1)$$
+
+Da der Term $2\cdot(n+m+1)$ den Faktor $2$ enthält, ist die Summe der beiden ungeraden Zahlen durch $2$ teilbar. Die Summe der beiden ungeraden Zahlen ist also eine gerade Zahl.
+
+#### {-}
+
+b) Quadriert man eine ungerade Zahl, so ist das Ergebnis ungerade.
+
+`r hide("Lösung")`
+
+Ungerade natürliche Zahlen haben die Darstellung $2n+1$, wobei $n$ eine natürliche Zahl ist. Für das Quadrat dieser Zahl (ACHTUNG: 1. binomische Formel!) gilt nun:
+
+$$(2n+1)^2=4n^2+4n+1=2\cdot\underbrace{(2n^2+2n)}_{irgendwas}+1$$
+Damit ist das Quadrat einer ungeraden natürlichen Zahl eine ungerade natürliche Zahl.
+
+#### {-}
+
+c) Die Summe von vier aufeinander folgenden natürlichen Zahlen ist niemals durch vier, aber immer durch zwei teilbar.
+
+Finde jeweils ein Gegenbeispiel oder beweise, dass Frau D. recht hat.
+
+`r hide("Tipp")`
+
+Führe Variablen und Terme ein! Betrachte Beispiele!
+
+#### {-}
+
+`r hide("Lösung")`
+
+Vier aufeinander folgende Zahlen sind: $n$, $n+1$, $n+2$ und $n+3$.
+
+Nun muss man die Summe der vier aufeinander folgenden Zahlen bilden und den entstandenen Term zusammenfassen:
+
+$$\begin{align}
+&\quad n + (n+1) + (n+2) + (n+3)  =\\
+&= n+n+1+n+2+n+3=\\
+&= 4n+6 = 2 \cdot(2n+3)
+\end{align}$$
+
+Da der Term $2 \cdot (2n+3)$ den Faktor $2$ enthält, ist die Summe von vier aufeinander folgenden Zahlen durch $2$ teilbar.
+
+Wenn die Summe auch durch $4$ teilbar wäre, müsste man im Term $4n+6$ den Faktor $4$ ausklammern können. Das ist aber nicht möglich.
+
+Natürlich kannst du auch argumentieren, dass der zweite Faktor des Produktes $2 \cdot (2n+3)$, also $2n+3$ nicht durch $2$ teilbar sein kann.
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+
+
+#### Aufgabe 4 - Der Würfeltrick {-}
+<img src="./images/glaskugelWuerfel.jpeg" height="150" />
+
+Eine Person wirft drei Würfel nacheinander verdeckt und merkt sich die geworfenen Zahlen in der Reihenfolge ihres Auftretens. Die zweite Person, der Hellseher, will die Zahlen erfahren. Dazu stellt er der ersten Person folgende Aufgabe:
+
+> Multipliziere die Zahl des ersten Würfels mit 2, addiere dann 5 und multipliziere das Ergebnis mit 5. Addiere die Zahl des zweiten Würfels dazu und multipliziere die Summe mit 10. Addiere schließlich die Zahl des dritten Würfels dazu.
+
+Die erste Person nennt das Ergebnis. Der Hellseher subtrahiert davon 250 und liest dann die Würfelzahlen als Hunderter-, Zehner- und Einerziffern ab.
+
+Begründe dieses Vorgehen. Stelle dazu einen Rechenterm für die drei Zahlen auf.
+
+`r hide("Lösung")`
+
+Der erste Würfel zeigt die Zahl $a$. ($a$ kann dann natürlich 1, 2, 3, 4, 5 oder 6 sein.)
+
+Der zweite Würfel zeigt die Zahl $b$. ($b$ kann natürlich auch 1, 2, 3, 4, 5 oder 6 sein.)
+
+Der dritte Würfel zeigt die Zahl $c$. (Und natürlich kann auch $c$ 1, 2, 3, 4, 5 oder 6 sein.)
+
+Die Rechenanweisung des *Hellsehers* kann dann wie folgt als Term geschrieben werden:
+
+$$\begin{align} &\quad\; [(2a+5)\cdot 5 + b] \cdot 10 +c =\\
+&= [10a+25+b]\cdot 10 +c =\\
+&= 100a + 250 +10b+ c =\\
+&= 100a+10b+c+250
+\end{align}$$
+
+Wenn der *Hellseher* von $100a+10b+c+250$ $250$ subtrahiert, erhält er $100a+10b+c$. Er kann also die gewürfelte Augenzahl $a$ (erster Würfel) als Hunderterziffer, die Augenzahl $b$ (zweiter Würfel) als Zehnerziffer und die Augenzahl $c$ (dritter Würfel) als Einerziffer ablesen.
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 5 {-}
+
+**Vorsicht - ausgesprochen gefährliche Aufgabe**
+
+Konstruiere eine Zahlenfolge. Gehe dabei so vor:
+
++ Beginne mit irgendeiner natürlichen Zahl $n>0$.
+
++ Wenn $n$ gerade ist, dann nimm als nächste Zahl $\frac{n}{2}$
+
++ Wenn $n$ ungerade ist, dann nimm als nächste Zahl $3\cdot n + 1$
+
+Hier ein Beispiel:
+
+Ich wähle als erste Zahl $n=9$. Das ist nicht gerade, also rechne ich $3 \cdot 9 + 1 =28$. Damit habe ich die zweite Zahl. Die ist gerade, also erhalte ich als dritte Zahl $\frac{28}{2} = 14$. $14$ ist wieder gerade, damit bekomme ich als vierte Zahl $\frac{14}{2}=7$ - eine ungerade Zahl. Somit ergibt sich als fünfte Zahl $3\cdot 7 +1 = 22$, also wieder eine gerade Zahl. Das führt zu meiner sechsten Zahl: $\frac{22}{2} = 11$. $11$ ist wieder ungerade, womit sich als siebte Zahl der Zahlenfolge die Zahl $3 \cdot 11 + 1 = 34$ ergibt. Als achte Zahl erhalte ich dann $\frac{34}{2} =17$ und als neunte Zahl $3\cdot 17 + 1= 52$. Meine zehnte Zahl lautet also $\frac{52}{2} = 26$ und meine elfte Zahl $\frac{26}{2}=13$ usw. 
+
+Meine Zahlenfolge sieht also so aus:
+
+9, 28, 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1 und da endet das Spiel
+
+a) Warum endet das Spiel, wenn man bei der 1 angelangt ist?
+
+b) Mache mindestens drei Beispiele. Die Informatiker unter euch dürfen natürlich auch python rechnen lassen.
+
+<!-- `r hide("Lösung")` -->
+
+<!-- collatzListe = [] -->
+
+<!-- def collatz(n): -->
+<!--     collatzListe.append(n) -->
+<!--     if n==1: -->
+<!--         print collatzListe -->
+<!--         print len(collatzListe) -->
+<!--     else: -->
+<!--         if isInteger(n/2): -->
+<!--             n= int(n/2) -->
+<!--             collatz(n) -->
+<!--         else: -->
+<!--             n=3*n+1 -->
+<!--             collatz(n) -->
+
+
+<!-- collatz(27) -->
+
+<!-- #### {-} -->
+
+c) Beweise, dass jede so konstruierte Zahlenfolge auf die Zahlen 4, 2, 1 endet. Oder widerlege diese Behauptung durch ein Gegenbeispiel.
+
+`r hide("Lösung")`
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 6 - Variationen eines Satzes {-}
+##### a) Grundaufgabe {-}
+Beweise oder widerlege folgende Behauptung:
+
+> Die Summe von drei aufeinander folgenden Zahlen ist durch 3 teilbar.
+
++ Mache drei Beispiele.
+
++ Wenn du ein Gegenbeispiel findest, genügt das, um die Behauptung zu widerlegen.
+
++ Solltest du kein Gegenbeispiel finden, versuche einen Term aufzustellen und mit dessen Hilfe die Behauptung durch geschicktes Zusammenfassen des Termes zu zeigen.
+
+`r hide("Lösung")`
+
+**3 Beispiele**
+
+$1+2+3=6$, $6$ ist durch $3$ teilbar.
+
+$14+15+16= 45$, $45$ ist durch $3$ teilbar.
+
+$8+9+10= 27$, $27$ ist durch $3$ teilbar.
+
+**Beweis**
+
+Drei aufeinander folgende Zahlen sind: $n$, $n+1$ und $n+2$.
+
+$$\begin{align} 
+& \; n+(n+1)+(n+2) =\\
+= & \;n+n+1+n+2 \quad = \\
+= & \; 3n +3 = 3 \cdot (n+1)
+\end{align}$$
+
+Da der Term $3 \cdot (n+1)$ den Faktor 3 enthält, ist die Summe von drei aufeinander folgenden Zahlen durch 3 teilbar.
+
+#### {-}
+
+##### b) Erste Abwandlung {-}
+Obiger Satz wird nun abgewandelt: Ist die Summe von vier aufeinander folgenden Zahlen durch 4 teilbar? Und die Summe von fünf aufeinander folgenden Zahlen durch 5? Was ist entsprechend mit 6, 7, 8 oder 9 aufeinander folgenden Zahlen?
+
++ Nach einigen Beispielen wirst du eine Vermutung formulieren können. Notiere diese.
+
++ Kannst du einen allgemeinen Satz für k Summanden formulieren? $n+(n+1)+(n+2)+(n+3)+\ldots+(n+k-1)=$
+
+`r hide("Lösung")`
+
+**Vermutung**
+
+Für ungerade Zahlen $k$ ist die Summe von $k$ aufeinander folgenden natürlichen Zahlen durch $k$ teilbar.
+
+Für gerade Zahlen $k$ gilt obiger Satz nicht. (Die Summe ist dann durch $\frac{k}{2}$ teilbar.)
+
+**Überlegungen**
+
+Die Summe aus k Summanden kann man folgendermaßen umformen:
+
+$$\begin{align} 
+&\overbrace{n}^{1. Summand}+\underbrace{n+1}_{2. Summand}+\overbrace{n+2}^{3.Summand}+\underbrace{n+3}_{4.Summand}+\ldots+\overbrace{n+k-1}^{k-ter Summand} =\\
+{}\\
+&=k\cdot n + (1+2+3+\ldots+k-1)
+\end{align}$$
+
+Dabei gilt $1+2+3+\ldots k-1 = \frac{(k-1)}{2} \cdot k$.
+
+(Denk daran: Du darfst die Summe umschreiben - wie beim Gläser umschütten!: $1+ (k-1) = k$ genauso wie $2+(k-2)$ und $3+(k-3)$ usw.. Es gibt hier $\frac{k-1}{2}$ viele Paare, die zusammen $k$ ergeben.)
+
+Also kann man obige Summe folgendermaßen schreiben: $n+(n+1)+(n+2)+(n+3)+\ldots+(n+k-1)= kn + k \cdot \frac{k-1}{2} = k \cdot (n+ \frac{k-1}{2})$
+
+**k ist ungerade**
+
+Dividiert man die Summe durch $k$, bleibt $n+\frac{k-1}{2}$ und das ist, wenn $k$ ungerade ist, eine natürliche Zahl. Denn, wenn $k$ ungerade ist, dann ist $k-1$ gerade und damit "problemlos" durch $2$ teilbar.
+
+
+**k ist gerade**
+
+Wenn $k$ gerade ist, ist $k-1$ ungerade und damit nicht ohne Rest durch $2$ teilbar. Auch die Addition von $n$ ändert natürlich nichts daran: $n+ \frac{k-1}{2}$ ist dann keine natürliche Zahl. In diesem Fall ist die Summe also nicht durch $k$ teilbar. 
+
+(Aber durch $\frac{k}{2}$! Wir musst du hier argumentieren? Versuch's mal!)
+ 
+#### {-}
+
+##### c) Zweite Abwandlung {-}
+Nun sollen es keine drei aufeinander folgenden Zahlen, sondern drei Zahlen mit gleichem Abstand sein. 
+
+* Mache Versuche:
+
+  + Abstand 2: $3+5+7=$
+
+  + Abstand 3: $3+6+9=$
+
+* Formuliere wieder eine Vermutung und notiere diese.
+
+* Jetzt kommt die Verallgemeinerung: Drei Summanden mit Abstand d. Schreibe die Summe allgemein wie im Aufgabenteil a) oder b) und führe einen Beweis.
+
+<!-- Serviceband Lambacher Schweizer 8 - S. 68 Variation eines Satzes -->
+
+`r hide("Lösung")`
+
+**Vermutung**
+
+Die Summe von drei natürlichen Zahlen mit Abstand $d$ ist durch $3$ teilbar.
+
+**Beweis**
+
+Drei aufeinander natürliche Zahlen mit Abstand $d$ sind: $n$, $n+d$ und $n+2d$.
+
+$$\begin{align} 
+& \; n+(n+d)+(n+2d) =\\
+= & \;n+n+d+n+2d \quad = \\
+= & \; 3n +3d = 3 \cdot (n+d)
+\end{align}$$
+
+Da der Term $3 \cdot (n+d)$ den Faktor 3 enthält, ist die Summe von drei natürlichen Zahlen mit Abstand $d$ durch 3 teilbar.
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 7 {-}
+Denke dir eine beliebige Zahl. Verdopple diese Zahl und addiere anschließend 7. Multipliziere das Ergebnis mit 3 und addiere anschließend 3. Multipliziere das Ergebnis erneut mit 3 und subtrahiere vom Ergebnis die Summe aus deiner anfangs gedachten Zahl und 4. Teile das Ergebnis durch 17 und subtrahiere erneut deine anfangs gedachte Zahl.
+
+a) Führe die Anweisungen für drei verschiedene Zahlen durch. Was fällt dir auf?
+
+`r hide("Lösung")`
+
+Das Ergebnis ist immer *4*.
+
+#### {-}
+
+b) Schreibe für deine anfangs gedachte Zahl die Variable x und stelle einen Term auf, der zu den Anweisungen passt.
+
+`r hide("Lösung")`
+
+$(3 \cdot (3 \cdot (2x+7)+3)-(x+4)):17 -x$
+
+#### {-}
+
+c) Vereinfache den Term aus b) so weit wie möglich und begründe die Entdeckung aus a).
+
+<!-- Schulbuch S. 165 Aufgabe 10 -->
+
+
+`r hide("Lösung")`
+
+$$\begin{align}
+& \quad (3 \cdot (3 \cdot (2x+7)+3)-(x+4)):17 -x = \\
+& = ( 3 \cdot (6x+21+3)-(x+4)):17-x=\\
+& = (3 \cdot (6x+24) - x - 4):17 -x =\\
+& = (18x + 72 -x -4 ) : 17 -x = \\
+& = (17x + 68):17 -x= \\
+& = x + 4 - x =\\
+& = 4
+\end{align}$$
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 8 {-}
+Frau D. behauptet:
+
+>"Setzt man einen natürliche Zahl n in den Term $8n+1$ ein, so erhält man immer eine ungerade Zahl".
+
+a) Entscheide, ob Frau D. recht hat. Begründe deine Entscheidung.
+
+`r hide("Lösung")`
+
+Ja, Frau D. hat recht, denn $8n$ ist für jedes $n$ gerade, da $8$ durch $2$ teilbar ist. Demzufolge muss $8n+1$ für jedes $n$ ungerade sein.
+
+#### {-}
+
+b) Lässt sich mit Hilfe des Terms $8n+1$ jede ungerade Zahl darstellen? Begründe.
+
+`r hide("Lösung")`
+
+Nein, zum Beispiel die Zahl $3$ lässt sich mit dem Term $8n+1$ nicht darstellen. Auch nicht die Zahlen $5$, $7$ oder $13$. 
+
+#### {-}
+
+c) Gib drei weitere Terme an, mit denen man nur ungerade Zahlen darstellen kann, und drei, mit welchen man nur gerade Zahlen darstellen kann.
+
+`r hide("Lösung")`
+
+**Beispiele für Terme, mit denen man nur ungerade Zahlen darstellen kann**
+
+$2n+1$, $4n+1$, $6n+1$, $2n+3$, $2n-1$, $10n+5$
+
+**Beispiele für Terme, mit denen man nur gerade Zahlen darstellen kann**
+
+$2n$, $4n$, $6n$, $2n+2$, $10n+4$
+
+#### {-}
+
+d) Gibt es einen Term, mit dem man jede ungerade Zahl darstellen kann. Begründe und gib diesen Term gegebenenfalls an.
+
+`r hide("Lösung")`
+
+Ja, mit dem Term $2n+1$ kann man jede ungerade Zahl darstellen, wenn für $n$ auch $0$ eingesetzt werden darf. Beginnend mit der $1$ ($1=0+1$) gibt es zu jeder ungerade Zahl eine gerade Zahl, die um $1$ kleiner ist.
+
+#### {-}
+
+e) Gibt es einen Term, mit dem man jede gerade Zahl darstellen kann. Begründe und gib diesen Term gegebenenfalls an.
+
+<!-- Schulbuch S. 180 Aufgabe 8 -->
+
+
+`r hide("Lösung")`
+
+Ja, mit dem Term $2n$ kann man jede gerade Zahl darstellen. Setzt man für $n$ nach einander alle natürlichen Zahlen ein, so erhält man alle geraden Zahlen.
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 9 {-}
+Überprüfe, ob die folgende Aussage stets für drei aufeinander folgende natürliche Zahlen gilt. Gib ein Gegenbeispiel an oder begründe ausführlich.
+
+Das Produkt von drei aufeinander folgenden Zahlen ist immer durch 6 teilbar.
+
+<!-- Cornelsen (grünes Heft) Lernstandserhebungen/VERA 8 Mathematik S.15 Aufgabe Z16 ZAHLENFOLGEN e) -->
+
+`r hide("Lösung")`
+
+Jede dritte Zahl ist durch $3$ teilbar. Also muss eine von drei aufeinander folgenden Zahlen durch $3$ teilbar sein. 
+
+Außerdem gilt, dass mindestens eine (vielleicht auch zwei) von drei Zahlen gerade sein muss. 
+
+Das Produkt von drei aufeinander folgenden Zahlen enthält also die Primfaktoren $3$ und $2$. Damit muss es durch $6$ teilbar sein.
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 10 {-}
+Frau D. kennt einen Rechentrick:
+
+>"Wenn ich zwei natürliche Zahlen zwischen 10 und 20 miteinander multiplizieren soll, dann addiere ich zur ersten Zahl die Einerziffer der zweiten Zahl; an diese Summe hänge ich eine Null an und addiere dann noch das Produkt der beiden Einerziffern dazu."
+
+a) Führe Frau D.'s Rechentrick mit den Zahlen 12 und 16 durch. Überprüfe, ob das Ergebnis dieser Rechnung wirklich das Produkt $12 \cdot 16$ ergibt.
+
+`r hide("Lösung")`
+
+$12+6=18$
+
+Null angehängt, ergibt die Zahl $180$
+
+$180+2 \cdot 6=180+12=192$
+
+**Probe**
+
+$12 \cdot 16 = 192$
+
+#### {-}
+
+b) Verwende für die erste Zahl den Term $10+x$ und für die zweite Zahl den Term $10+y$. Wie lautet dann ein Term für Frau D.'s Rechentrick?
+
+`r hide("Lösung")`
+
+Der Term für den Rechentrick lautet:
+
+$((10+x)+y) \cdot 10 + x \cdot y$
+
+#### {-}
+
+c) Überprüfe mit Hilfe dieses Terms, ob Frau D.'s Rechentrick immer funktioniert. Ergibt das Produkt der beiden Zahlen $10+x$ und $10+y$ immer diesen Term?
+
+`r hide("Lösung")`
+
+Wenn man den Term $((10+x)+y) \cdot 10 + x \cdot y$ ausmultipliziert, erhält man:
+
+$$\begin{align}
+((10+x)+y) \cdot 10 + x \cdot y &= (10 +x +y) \cdot 10 + x \cdot y =\\
+&= 100 +10x+10y+x\cdot y
+\end{align}$$
+
+Für das Produkt der beiden Zahlen $10+x$ und $10+y$ gilt gleichzeitig:
+
+$(10+x)\cdot (10+y) = 100 + 10y + 10x + x\cdot y$
+
+Der Rechentrick liefert also immer das korrekte Ergebnis.
+
+#### {-}
+
+d) Kannst du einen Rechentrick formulieren, der für das Produkt zweier Zahlen zwischen 20 und 30 gilt?
+
+<!-- Stark (rotes Heft) VERA 8 Mathematik S.148 Aufgabe 5 -->
+
+`r hide("Lösung")`
+
+Der Rechentrick könnte so formuliert sein:
+
+Wenn ich zwei natürliche Zahlen zwischen 20 und 30 miteinander multiplizieren soll, dann addiere ich zur ersten Zahl die Einerziffer der zweiten Zahl. An diese Summe hänge ich eine Null an, verdopple das Ergebnis und addiere dann noch das Produkt der beiden Einerziffern dazu.
+
+**Herleitung des Tricks**
+
+Für die beiden Zahlen zwischen $20$ und $30$ setzt man $20+x$ und $20+y$.
+
+Das Produkt der beiden Zahlen ist:
+
+$$\begin{align}
+(20+x) \cdot (20+y) &= 400 + 20x+20y+x \cdot y =\\
+& = 20 \cdot (20 +x+y) + x\cdot y = \\
+& = 2 \cdot 10 \cdot ((20+x)+y) + x \cdot y
+\end{align}$$
+
+Dabei sind dann:
+
+$20+x$ - die erste Zahl
+
+$y$ - die Einerziffer der zweiten Zahl
+
+$x\cdot y$ - das Produkt der beiden Einerziffern
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+
+## Geometrie
+
+#### Aufgabe 1 - Der Satz von Thales {-}
+Folgende Geogebra-Anwendung bietet eine Veranschaulichung einer geometrischen Gesetzmäßigkeit, die nach Thales benannt ist, der im 6. Jahrhundert v. Chr. in Milet lebte. Sie wird ihm zu Ehren als der Satz von Thales bezeichnet. Solltest du mehr über Thales von Milet wissen wollen, kannst du zum Beispiel [hier](https://de.wikipedia.org/wiki/Thales) nachlesen.
+
+<iframe scrolling="no" title="Satz von Thales" src="https://www.geogebra.org/material/iframe/id/wrvkufhn/width/1302/height/571/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="780px" height="500px" style="border:0px;"> </iframe>
+
+a) Bewege den Punkt C mit der Maus und versuche eine Vermutung aufzustellen, was Thales vor etwa 2600 Jahren herausfand.
+
+b) Überprüfe deine Vermutung anhand verschiedener Dreiecke. Bewege dazu auch die Punkte A und B, um neue Dreiecke zu erzeugen.
+
+c) Formuliere den Satz des Thales in der Wenn-Dann-Form.
+
+`r hide("Lösung")`
+
+Wenn C ein Punkt auf dem Halbkreis über der Strecke $\overline{AB}$ ist, dann hat das Dreieck ABC bei C einen rechten Winkel
+
+#### {-}
+
+Im Folgenden geht es nun darum, den Satz des Thales zu beweisen. Das darfst du gerne erst einmal ganz alleine und selbst versuchen. Solltest du an der ein oder anderen Stelle nicht weiterkommen, gibt es hier Tipps.
+
+
+`r hide("Tipp 1: Was wusste Thales")`
+
++ Er soll gewusst haben, dass ein Kreis durch jeden Durchmesser in zwei gleiche Teile geteilt wird.
+
++ Ihm war bekannt, dass ein gleichschenkliges Dreieck zwei gleich große Basiswinkel hat.
+
++ Er wusste, dass die Winkelsumme im Dreieck 180° beträgt.
+
+#### {-}
+
+`r hide("Tipp 2: Hilflinie gefällig?")`
+
+Mache dir eine Skizze des Dreiecks mit dem Thaleskreis, ohne jedoch den rechten Winkel bei C als solchen zu kennzeichnen. Zeichne auch die Strecke $\overline{MC}$ ein. So entstehen die beiden Dreiecke AMC und BCM. 
+
+Überlege und notiere: Welche Besonderheiten weisen sie auf?
+
+#### {-}
+
+`r hide("Tipp 3: Eine besondere Skizze")`
+
+<iframe scrolling="no" title="Beweishilfe Satz von Thales" src="https://www.geogebra.org/material/iframe/id/rxagbxcs/width/1302/height/571/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="700px" height="300px" style="border:0px;"> </iframe>
+
+Mache dir klar, warum die beiden Dreiecke AMC und BCM jeweils zwei gleich große Winkel haben.
+
+#### {-}
+
+`r hide("Tipp zu Tipp 3")`
+
+Denk daran: Der Radius des Kreises ist überall gleich lang!
+
+#### {-}
+
+`r hide("Tipp 4: Beachte die Winkel")`
+
+Bezeichne die Winkel der Dreiecke AMC und BCM mit griechischen Buchstaben, wobei gleich weite Winkel gleiche Buchstaben erhalten sollen. Stelle anschließend die Gleichung für die Winkelsumme des Dreiecks ABC auf.
+
+Durch Umformen der Gleichung erhältst du nun den gesuchten Satz.
+
+#### {-}
+
+d) Schreibe den Beweis des Satzes von Thales übersichtlich auf. Wo greifst du in die Trickkiste? Was folgt dann Schritt für Schritt?
+
+`r hide("Lösung")`
+
+Zunächst zeichnet man die Strecke $\overline{MC}$ als Hilfslinie ein (Trickkiste!). Auf diese Weise zerlegt man das Dreieck ABC in zwei kleinere Dreiecke: das Dreieck AMC und das Dreieck MBC.
+
+Die Dreiecke AMC und MBC sind beide gleichschenklig: Die Strecken $\overline{AM}$, $\overline{MC}$ und $\overline{MB}$ sind alle gleich lang. Ihre Länge entspricht dem Radius des Kreises.
+
+Da die Dreiecke AMC und MBC gleichschenklig sind, haben sie auch zwei gleich weite Basiswinkel. Notiert man das alles in einer Skizze, sieht diese wie folgt aus:
+
+<img src="./images/SkizzeThales.png" height="300" />
+
+Wie du weißt, beträgt die Winkelsumme im Dreieck 180°.
+
+Damit gilt im Dreieck ABC also: $2 \alpha + 2 \beta = 180°$
+
+Dividiert man nun noch beide Seiten der Gleichung durch 2, ergibt sich $\alpha + \beta = 90°$. Damit ist der Satz des Thales bewiesen.
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 2 {-}
+Experimentiere mit der folgenden Geogebra-Anwendung. Du kannst den Winkel $\phi$ verändern, den Punkt A bewegen und dir die Größe des Umfangs- und des Mittelpunktwinkels anzeigen lassen..
+
+<iframe scrolling="no" title="Umfangwinkelsatz" src="https://www.geogebra.org/material/iframe/id/smmrdrfz/width/1302/height/571/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="780px" height="500px" style="border:0px;"> </iframe>
+
+a) Formuliere einen mathematischen Satz, der den von dir vermuteten Sachverhalt beschreibt.
+
+`r hide("Lösung")`
+
+Wenn $A$, $P_1$ und $P_2$ auf einem Kreis um den Mittelpunkt $M$ liegen und $M$ im Inneren des Dreiecks $P_2P_1A$ liegt, dann gilt:
+
+$\measuredangle P_2MP_1 =  2 \cdot \measuredangle P_2AP_1$.
+
+#### {-}
+
+b) Prüfe, ob deine Vermutung auch dann gilt, wenn M auf einer Dreieckseite oder außerhalb des Dreiecks liegt. Präzisiere (gegebenenfalls) deinen Satz.
+
+`r hide("Lösung")`
+
+Wenn $A$, $P_1$ und $P_2$ auf einem Kreis um den Mittelpunkt $M$ liegen und $M$
+
++ auf der Sehne $P_1P_2$ liegt oder
+
++ im Inneren des Dreiecks $P_2P_1A$ liegt oder
+
++ auf der Strecke $\overline{AP_2}$ liegt oder ganz allgemein 
+
++ von $\overline{P_1P_2}$ aus gesehen auf der gleichen Seite wie $A$ liegt
+
+dann gilt: $\measuredangle AMB =  2 \cdot \measuredangle ACB$.
+
+#### {-}
+
+Im Folgenden geht es nun wieder darum, den aufgestellten Satz zu beweisen. Das darfst du gerne erst einmal ganz alleine und selbst versuchen. Solltest du an der ein oder anderen Stelle nicht weiterkommen, gibt es hier Tipps.
+
+`r hide("Tipp 1: Mache dir eine Skizze")`
+
+Zeichne die Ausgangsfigur:
+
++ Schlage einen Kreis mit Radius $r=5\;cm$ um den Mittelpunkt $M$
+
++ Markiere auf der Kreislinie zwei Punkte $P_1$ und $P_2$, so dass M nicht auf $\overline{P_1P_2}$ liegt und zeichne das Dreieck $P_1P_2M$.
+
++ Wähle nun einen Punkt A auf der Kreislinie so, dass M im Inneren des Dreiecks $P_2P_1A$ liegt und zeichne das Dreieck $P_2P_1A$.
+
+#### {-}
+
+`r hide("Tipp 2: Hilfslinie gefällig?")`
+
+Zeichne die Strecke $\overline{MA}$ ein. So entstehen die beiden Dreiecke $MP_1A$ und $AP_2M$. Überlege welche Besonderheiten die Dreiecke aufweisen.
+
+#### {-}
+
+`r hide("Tipp zu Tipp 2")`
+
+Denk daran: Der Radius des Kreises ist überall gleich lang!
+
+#### {-}
+
+`r hide("Tipp 3: Beachte die Basiswinkel")`
+
+Bezeichne die Basiswinkel der Dreiecke $P_2P_1M$, $AP_2M$ und $AMP_1$ mit den griechischen Buchstaben $\alpha$, $\beta$ und $\gamma$, wobei gleich weite Winkel gleiche Buchstaben erhalten sollen.
+
+Bezeichne weiterhin den Mittelpunktswinkel mit $\delta$ und den Umfangswinkel mit $\epsilon$. 
+
+Notiere, als welche Summe sich $\epsilon$ schreiben lässt.
+
+#### {-}
+
+`r hide("Tipp 4: Beachte die Winkel bei M")`
+
+Die Summe der drei Innenwinkel bei M beträgt 360°, demnach gilt also:
+
+$\delta + (180°-2 \cdot \ldots) + (180°- 2 \cdot \ldots) =  360°$
+
+Ergänze obige Gleichung durch die bei dir passenden Winkel. Fasse anschließend zusammen und forme um. Auf diese Weise erhältst du den gesuchten Satz.
+
+#### {-}
+
+c) Schreibe den Beweis des Satzes übersichtlich auf. Wo greifst du in die Trickkiste? Was folgt dann Schritt für Schritt?
+
+`r hide("Lösung")`
+
+
+**1. Fall: $A$, $P_1$ und $P_2$ liegen auf einem Kreis um den Mittelpunkt $M$ und $M$ liegt auf der Sehne $P_1P_2$.**
+
+
+**2. Fall: $A$, $P_1$ und $P_2$ liegen auf einem Kreis um den Mittelpunkt $M$ und $M$ liegt im Inneren des Dreiecks $P_2P_1A$**
+
+
+**3. Fall: $A$, $P_1$ und $P_2$ liegen auf einem Kreis um den Mittelpunkt $M$ und $M$ liegt auf der Strecke $\overline{AP_2}$**
+
+
+**4.Fall: $A$, $P_1$ und $P_2$ liegen auf einem Kreis um den Mittelpunkt $M$ und $M$ und $A$ liegen von $\overline{P_1P_2}$ aus gesehen auf der gleichen Seite**
+
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 3 {-}
+Auf einem Kreis liegen die Eckpunkte eines Vierecks so, dass eine Diagonale des Vierecks durch den Mittelpunkt des Kreises geht. 
+
+a) Skizziere den beschriebenen Sachverhalt.
+
+`r hide("Lösung")`
+
+<iframe scrolling="no" title="Dynamische Skizze für Aufgabe 3" src="https://www.geogebra.org/material/iframe/id/hh794cgb/width/1302/height/523/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="700px" height="300px" style="border:0px;"> </iframe>
+
+Du kannst die Eckpunkte B und D bewegen! Beobachte, was passiert.
+
+#### {-}
+
+b) Welche speziellen Eigenschaften hat das Viereck?
+
+`r hide("Lösung")`
+
++ Das Viereck hat mindestens zwei rechte Winkel. (Thaleskreis!)
+
++ In diesem Viereck gilt: Gegenüberliegende Winkel ergänzen sich zu 180°.
+
+#### {-}
+
+c) Formuliere einen mathematischen Satz und beweise ihn. Natürlich darfst du im Beweis auf bereits bewiesene Sätze verweisen.
+
+`r hide("Lösung")`
+
+**Satz 1**
+
+Wenn bei einem Viereck mit Umkreis eine Diagonale durch den Mittelpunkt des Umkreises geht, dann hat das Viereck mindestens zwei rechte Winkel.
+
+*Beweis*
+
+Die Punkte B und D liegen auf dem Thaleskreis über der Strecke AC. Die Winkel bei B und D betragen daher 90°.
+
+**Satz 2**
+
+Wenn bei einem Viereck mit Umkreis eine Diagonale durch den Mittelpunkt des Umkreises geht, dann ergänzen sich gegenüberliegende Winkel zu 180°.
+
+*Beweis*
+
+Die Winkel bei B und D betragen beide 90°, da die Punkte B und D auf dem Thaleskreis über der Strecke AC liegen. Zusammen ergeben sie also 180°. Die Innenwinkelsumme im Viereck beträgt 360°. Folglich müssen sich die verbleibenden beiden Winkel (bei A und C) auch zu 180° ergänzen.
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 4 {-}
+Bestimme die fehlenden Winkel.
+
+<img src="./images/winkelAusrechnen1.png" height="170" />
+
+<!-- Schulbuch S. 171 Aufgabe 1c -->
+
+`r hide("Lösung")`
+
+Die Winkelsumme im Dreieck beträgt 180°. Das kann man hier zweimal nutzen:
+
+$\alpha =  180° - (55°+60°) = 180° - 115° = 65°$ und
+
+$\beta = 180° - (40° + 55° + 60°) = 180° - 155° = 25°$
+
+Genauso gut kann man natürlich zunächst den Nebenwinkel von $\alpha$ berechnen. Er hat die Weite: $180° - \alpha = 180° - 65° = 115°$
+
+Dann erhält man $\beta$ folgendermaßen:
+
+$\beta = 180° - (115° + 40°)= 180° - 155° = 25°$
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 5 {-}
+Begründe, dass die Winkel $\alpha$ und $\beta$ gleich groß sind.
+
+<img src="./images/winkelArgumentierenA5.png" height="200" />
+
+<!-- Cornelsen (grünes Heft) Lernstandserhebungen/VERA 8 Mathematik S.18 Aufgabe M11 WINKEL -->
+
+`r hide("Lösung")`
+
+Die Winkelsumme im Dreieck beträgt 180°. 
+
+Also gilt $\alpha + \gamma = 90°$ und $\beta + \delta = 90°$. 
+
+Außerdem sind $\gamma$ und $\delta$ Scheitelwinkel und damit gleich groß.
+
+Folglich gilt: $\alpha = 90° - \gamma \underbrace{=}_{\gamma = \delta} 90° - \delta = \beta$
+
+Somit ist also $\alpha = \beta$
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 6 {-}
+Ein Fünfeck, bei dem alle Seiten gleich lang und alle Winkel gleich groß sind, bezeichnet man als regelmäßiges Fünfeck oder Pentagon.
+
+<img src="./images/fuenfeck.png" height="200" />
+
+Gib die Größen aller Innenwinkel des Fünfecks an.
+
+<!-- Cornelsen (grünes Heft) Lernstandserhebungen/VERA 8 Mathematik S.22 Aufgabe RF - Magisches Fünfeck -->
+
+`r hide("Lösung")`
+
+Alle Eckpunkte des Fünfecks liegen auf einem Kreis. Daher haben sie alle denselben Abstand zum Mittelpunkt M des Kreises. Diesen Abstand nenne ich $r$ und notiere ihn in der Skizze. 
+
+<img src="./images/fuenfeckbeschriftet.png" height="300" />
+
+Das Fünfeck besteht also aus fünf gleichen gleichschenkligen Dreiecken. 
+
+In jedem dieser Dreiecke gilt: $\alpha + 2 \cdot \beta = 180°$
+
+Außerdem gilt für den Winkel $\alpha$: 
+
+$$\begin{align}
+5 \cdot \alpha &= 360° \quad\quad |:5\\
+\alpha &= 72°
+\end{align}$$
+
+Damit gilt für den Winkel $\beta$: 
+
+$\beta = (180° - \alpha) : 2 = (180° - 72°): 2 = 108°:2 = 54°$
+
+$\beta$ ist ein halber Innenwinkel. Jeder Innenwinkel im regelmäßigen Fünfeck ist also $2 \cdot \beta = 108°$ weit.
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 7 {-}
+Bestimme die gekennzeichneten Winkel rechnerisch. Begründe ausführlich.
+
+<img src="./images/winkelAusrechnen2.png" height="170" />
+
+<!-- Schulbuch S. 181 Aufgabe 12c -->
+
+`r hide("Lösung")`
+
+Die Winkelsumme im Dreieck beträgt 180°. Das kann man hier mehrfach nutzen:
+
+$$\begin{align}
+28° + 2 \cdot \alpha &= 180° \quad\quad |-28° \\
+2 \cdot \alpha &= 152° \quad\quad |:2 \\
+\alpha &= 76°
+\end{align}$$
+
+Analog gilt für $\beta$:
+
+$$\begin{align}
+76° + 2 \cdot \beta &= 180° \quad\quad |-76° \\
+2 \cdot \beta &= 104° \quad\quad |:2 \\
+\beta &= 52°
+\end{align}$$
+
+Damit kennt man auch den Nebenwinkel von $\beta$. Er hat die Weite: $180°-52°=128°$.
+
+Mit dem bekannten $28°$-Winkel, dem Nebenwinkel von $\beta$ und der Tatsache, dass die Winkelsumme im Dreieck 180° beträgt, lässt sich $\gamma$ folgendermaßen berechnen:
+
+$\gamma = 180° - (28° + 128°) = 180° - 156° = 24°$
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+
+## Funktionen
+
+#### Aufgabe 1 {-}
+Welcher der Graphen könnte zu welcher Zuordnung gehören? Begründe.
+
+<img src="./images/graphenzuordnen.png" height="200" />
+
+a) Zeit $\rightarrow$ zurückgelegter Weg bei konstanter Geschwindigkeit
+
+b) Brenndauer $\rightarrow$ Höhe einer brennenden Kerze
+
+c) Volumen $\rightarrow$ Füllhöhe einer bauchigen Vase
+
+d) Zeit $\rightarrow$ Geschwindigkeit beim Fahren einer Kurve
+
+e) Zeit $\rightarrow$ abstand vom Boden zum Schaukelbrett
+
+f) Alter eines Menschen $\rightarrow$ seine Körpergröße
+
+g) Überlege dir für den übrig gebliebenen Graphen eine passende Zuordnung. Begründe.
+
+`r hide("Lösung")`
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 2 {-}
+Aus der Lernstandserhebung von 2004:
+
+<img src="./images/schulweg.png" height="150" />
+
+Obige Abbildung zeigt die Schulwege von Paula, Maria und Peter. Alle drei besuchen die gleiche Schule, wohnen aber unterschiedlich weit weg von ihr. Entscheide, ob die folgenden Aussagen stimmen können oder nicht oder ob sie sich nicht beantworten lassen. Begründe deine Entscheidung.
+
+a) Paula wohnt am weitesten von der Schule entfernt.
+
+b) Peter geht am langsamsten und kommt daher auch als Letzter in der Schule an.
+
+c) Paula holt Maria von zu Hause ab. Maria ist aber noch nicht fertig, als Paula kommt.
+
+d) Peter hat etwas zu Hause vergessen, was ihm auf halbem Weg einfällt.
+
+e) Paula geht mit Maria schneller als ohne Maria.
+
+f) Maria wohnt einen Kilomenter von der Schule entfernt.
+
+`r hide("Lösung")`
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 3 {-}
+Das Auto von Herrn Huber verbraucht durchschnittlich 8 Liter Benzin auf 100km. Das Auto von Herrn Schreiber verbraucht nur 7 Liter auf 100km, das von Frau Krause 9 Liter auf 100 km. Die Tabelle und der Graph stellen den durchschnittlichen Benzinverbrauch je eines dieser Autos dar.
+
+```{r, 'kable'}
+```
+   Strecke in km | Verbrauch in Litern 
+-----------------|---------------------
+80 | 6,4
+150 | 12
+180 | 14,4
+260 | 20,8
+
+<img src="./images/FunktionenA3Graph.png" height="150" />
+
+a) Zu welchem Auto passt die Tabelle. Begründe.
+
+b) Zu welchem Auto passt der Graph. Begründe.
+
+c) Gib für den Benzinverbrauch der drei Autos je eine Funktionsgleichung an, welche die Anzahl der verbrauchten Liter y in Abhängigkeit von den gefahrenen Kilometern x angibt.
+
+`r hide("Lösung")`
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+<!-- #### Aufgabe 4 {-} -->
+
+
+<!-- `r hide("Lösung")` -->
+
+<!-- #### {-} -->
+
+<!-- ```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE} -->
+<!-- cat('<hr style="background-color:#3C6690;height:2px">') -->
+<!-- ``` -->
+
+
+## Daten und Zufall
+
+#### Aufgabe 1 {-}
+Frau D. möchte im Urlaub in die Berge. Ihr Mann würde gerne einmal die holländische Küste fahren. Alle Kinder wollen zum Plantschen zur Oma. 
+
+Die Familie einigt sich darauf, das Reiseziel auszulosen. Frau D. schlägt folgendes System vor: Nacheinander werden zwei 1-Euro-Münzen geworfen. Falls beide Münzen Zahl zeigen, fährt die Familie nach Holland. Falls beide Münzen Kopf zeigen, geht es zur Oma. Falls eine Münze Zahl und eine Münze Kopf zeigt, fährt die Familie in die Berge.
+
+a) Wo verbringt die Familie wahrscheinlich ihren Urlaub? Begründe deine Antwort.
+
+b) Die Kinder sind mit dem Verfahren nicht einverstanden. Sie wollen die Entscheidung mit Hilfe von Würfeln treffen, damit die drei Urlaubsziele gleich wahrscheinlich sind. Entwickle einen entsprechenden Vorschlag.
+
+`r hide("Lösung")`
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
+#### Aufgabe 2 {-}
+Zu Beginn des fünften Schuljahres wurden klassenintern zahlreiche Umfragen durchgeführt. 50% der Schüler:innen der Klasse gaben damals an, eine Katze zu besitzen, 20% sagten, sie hätten einen Hund, 17% hatten einen Vogel, 15% einen Hamster und 10% ein Kaninchen. 18% der Schüler:innen gaben an, kein Haustier zu besitzen.
+
+a) Jan hat versucht das Umfrageergebnis in einem Kreisdiagramm darzustellen. Leider ist Frau D. nicht einverstanden. Warum nicht?
+
+<img src="./images/kreisdiagramm.png" height="150" />
+
+b) Jan ist verzweifelt. Egal wie oft er zählt kommt er auf die gleichen Prozentangaben. Wie kann es zu derartigen Umfrageergebnissen kommen?
+
+c) Zeichne ein Diagramm, das zu den Umfrageergebnissen passt.
+
+`r hide("Lösung")`
+
+#### {-}
+
+```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
+cat('<hr style="background-color:#3C6690;height:2px">')
+```
+
