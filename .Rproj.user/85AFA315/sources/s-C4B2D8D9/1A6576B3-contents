@@ -1,6 +1,6 @@
 ---
 title: "Terme - Terme - Terme"
-cover-image: "./images/spurensuche.jpeg"
+cover-image: "./images/Terme.jpeg"
 site: bookdown::bookdown_site
 output: 
   bookdown::pdf_book:
@@ -59,7 +59,7 @@ cat('<hr style="background-color:#3C6690;height:2px">')
 
 ### Aktuelles {-}
 
-+ Viel Spaß!
++ Preisfrage für die Pause: Was hat das Bild oben links mit dem Thema zu tun?
 
 
 

@@ -43,6 +43,18 @@ Gleichartig sind:            | addieren             |subtrahieren
 cat('<hr style="background-color:#3C6690;height:2px">')
 ```
 
+
+```{css, echo=FALSE}
+.box {
+        display: flex;
+      }
+
+      .box > * {
+        flex: 1 1 0;
+      }
+```
+
+
 <script language="javascript">
 function toggle(num) {
 var ele = document.getElementById("toggleText" + num);
@@ -329,6 +341,31 @@ $2 \cdot b \cdot (-1) \cdot a \cdot r \cdot 2 \cdot b \cdot 3 \cdot a \cdot r \c
 ```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
 cat('<hr style="background-color:#3C6690;height:2px">')
 ```
+
+```{css, echo=FALSE}
+.box {
+        display: flex;
+      }
+
+      .box > * {
+        flex: 1 1 0;
+      }
+```
+
+<script language="javascript">
+function toggle(num) {
+var ele = document.getElementById("toggleText" + num);
+var text = document.getElementById("displayText" + num);
+if(ele.style.display == "block") {
+ele.style.display = "none";
+text.innerHTML = "show";
+}
+else {
+ele.style.display = "block";
+text.innerHTML = "hide";
+}
+}
+</script>
 
 #### Aufgabe 1 {-}
 Vereinfache die folgenden Terme.
@@ -649,6 +686,32 @@ $$B) \quad \begin{align} &3x - (- 2 + 4y) = \\
 ```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
 cat('<hr style="background-color:#3C6690;height:2px">')
 ```
+
+
+```{css, echo=FALSE}
+.box {
+        display: flex;
+      }
+
+      .box > * {
+        flex: 1 1 0;
+      }
+```
+
+<script language="javascript">
+function toggle(num) {
+var ele = document.getElementById("toggleText" + num);
+var text = document.getElementById("displayText" + num);
+if(ele.style.display == "block") {
+ele.style.display = "none";
+text.innerHTML = "show";
+}
+else {
+ele.style.display = "block";
+text.innerHTML = "hide";
+}
+}
+</script>
 
 #### Aufgabe 1 {-}
 Vereinfache die folgenden Terme. Eventuell musst du zunächst Produktterme vereinfachen, um gleichartige Terme zu finden.
@@ -1026,6 +1089,33 @@ $$ (b+c) \cdot \color{blue}{a}  = b \cdot \color{blue}{a} + c \cdot \color{blue}
 cat('<hr style="background-color:#3C6690;height:2px">')
 ```
 
+
+```{css, echo=FALSE}
+.box {
+        display: flex;
+      }
+
+      .box > * {
+        flex: 1 1 0;
+      }
+```
+
+
+<script language="javascript">
+function toggle(num) {
+var ele = document.getElementById("toggleText" + num);
+var text = document.getElementById("displayText" + num);
+if(ele.style.display == "block") {
+ele.style.display = "none";
+text.innerHTML = "show";
+}
+else {
+ele.style.display = "block";
+text.innerHTML = "hide";
+}
+}
+</script>
+
 #### Aufgabe 1 {-}
 Löse die Klammer auf, indem du ausmultiplizierst.
 
@@ -1303,6 +1393,33 @@ $$ (b+c) : \color{blue}{a}  = (b+c) \cdot {1 \over \color{blue}{a}} =  b \cdot {
 cat('<hr style="background-color:#3C6690;height:2px">')
 ```
 
+
+```{css, echo=FALSE}
+.box {
+        display: flex;
+      }
+
+      .box > * {
+        flex: 1 1 0;
+      }
+```
+
+
+<script language="javascript">
+function toggle(num) {
+var ele = document.getElementById("toggleText" + num);
+var text = document.getElementById("displayText" + num);
+if(ele.style.display == "block") {
+ele.style.display = "none";
+text.innerHTML = "show";
+}
+else {
+ele.style.display = "block";
+text.innerHTML = "hide";
+}
+}
+</script>
+
 #### Aufgabe {-}
 
 :::: {class="box"}
@@ -1451,6 +1568,33 @@ $$34a^2b - 51ab^2= 2 \cdot \color{red}{17 \cdot a} \cdot a \cdot \color{red}{b} 
 cat('<hr style="background-color:#3C6690;height:2px">')
 ```
 
+
+```{css, echo=FALSE}
+.box {
+        display: flex;
+      }
+
+      .box > * {
+        flex: 1 1 0;
+      }
+```
+
+
+<script language="javascript">
+function toggle(num) {
+var ele = document.getElementById("toggleText" + num);
+var text = document.getElementById("displayText" + num);
+if(ele.style.display == "block") {
+ele.style.display = "none";
+text.innerHTML = "show";
+}
+else {
+ele.style.display = "block";
+text.innerHTML = "hide";
+}
+}
+</script>
+
 #### Aufgabe 1 {-}
 Um Faktoren, die man ausklammern kann, schnell erkennen zu können, hilft es, wenn man Übung darin hat, Zahlen in ihre Primfaktoren zu zerlegen. 
 
@@ -1459,7 +1603,7 @@ Hier ein Beispiel: $24 = 2 \cdot 2 \cdot 2 \cdot 3$
 :::: {class="box"}
 ::: {}
 
-<button id="displayText" onclick="javascript:toggle(117);">$(45$</button>
+<button id="displayText" onclick="javascript:toggle(117);">$45$</button>
 <div id="toggleText117" style="display: none">
 
 $3\cdot 3 \cdot 5$
@@ -1910,6 +2054,33 @@ $$(\color{red}{2a} + \color{red}{3b}) \cdot (\color{blue}{x} + \color{blue}{5y})
 ```{r, eval=knitr::opts_knit$get("rmarkdown.pandoc.to") == "html", results='asis', echo=FALSE}
 cat('<hr style="background-color:#3C6690;height:2px">')
 ```
+
+
+```{css, echo=FALSE}
+.box {
+        display: flex;
+      }
+
+      .box > * {
+        flex: 1 1 0;
+      }
+```
+
+
+<script language="javascript">
+function toggle(num) {
+var ele = document.getElementById("toggleText" + num);
+var text = document.getElementById("displayText" + num);
+if(ele.style.display == "block") {
+ele.style.display = "none";
+text.innerHTML = "show";
+}
+else {
+ele.style.display = "block";
+text.innerHTML = "hide";
+}
+}
+</script>
 
 #### Aufgabe 1 {-}
 Multipliziere aus.

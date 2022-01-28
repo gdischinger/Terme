@@ -3,7 +3,7 @@
     "path": "~/github/Lernpfade/Terme/index.Rmd",
     "project_path": "index.Rmd",
     "type": "r_markdown",
-    "hash": "2751652055",
+    "hash": "2057172593",
     "contents": "",
     "dirty": false,
     "created": 1620593965940.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "53,5",
-        "scrollLine": "41"
+        "cursorPosition": "61,28",
+        "scrollLine": "53"
     },
     "folds": "",
-    "lastKnownWriteTime": 1643322461,
+    "lastKnownWriteTime": 1643327941,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1643322461025,
+    "last_content_update": 1643327941044,
     "read_only": false,
     "read_only_alternatives": []
 }
